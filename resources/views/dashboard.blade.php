@@ -14,7 +14,7 @@
                             Last Draw Numbers
                         </p>
                         <p class="text-2xl">
-                            {{ $last_draw->numbers }}
+                            {{ $last_draw?->numbers }}
                         </p>
                     </div>
                 </div>
