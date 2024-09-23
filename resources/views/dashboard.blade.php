@@ -1,4 +1,13 @@
 <x-app-layout>
+
+    @section('styles')
+        <style>
+            video::-webkit-media-controls-timeline {
+                display: none;
+            }
+        </style>
+    @endsection
+
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Dashboard') }}
