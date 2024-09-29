@@ -12,12 +12,10 @@ class HomeController extends Controller
     //
     public function index()
     {
-        $newLottery = LotteryNumber::latest('id')->first();
         $last_draw = LotteryNumber::latest('id')->skip(1)->first();
         $videos = Video::active()->get();
 
         return view('dashboard', compact(
-            'newLottery',
             'videos',
             'last_draw',
         ));

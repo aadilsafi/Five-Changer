@@ -1,66 +1,58 @@
-<x-app-layout>
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="overflow-x-auto">
-                <table class="min-w-full bg-white border border-gray-200">
-                    <thead>
+@extends('layout.app')
+
+@section('styles')
+    <style>
+        table tbody tr {
+            border-bottom: 1px solid #e7e9ed !important;
+        }
+    </style>
+@endsection
+
+@section('content')
+    <section class="jackpot-section section-padding">
+        <div class="container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Attempt #</th>
+                        <th scope="col">Combination # 1</th>
+                        <th scope="col">Combination # 2</th>
+                        <th scope="col">Combination # 3</th>
+                        <th scope="col">Combination # 4</th>
+                        <th scope="col">Combination # 5</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($lottertTickets as $tickets)
                         <tr>
-                            <th
-                                class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Attempt Number
-                            </th>
-                            <th
-                                class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Combination # 1
-                            </th>
-                            <th
-                                class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Combination # 2
-                            </th>
-                            <th
-                                class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Combination # 3
-                            </th>
-                            <th
-                                class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Combination # 4
-                            </th>
-                            <th
-                                class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Combination # 5
-                            </th>
+                            <td colspan="6">
+                                Draw # {{ $tickets->first()->first()->lotteryNumber->draw_number }}
+                            </td>
                         </tr>
-                    </thead>
-                    <tbody class="bg-white divide-y divide-gray-200">
-                        @foreach ($lottertTickets as $tickets)
+                        @foreach ($tickets as $tryNumber => $ticket)
                             <tr>
-                                <td colspan="6"
-                                    class="px-6 py-4 whitespace-nowrap text-sm font-bold text-gray-900">
-                                    Draw # {{ $tickets->first()->first()->lotteryNumber->draw_number }}
-                                </td>
+                                <th scope="row">
+                                    {{ $tryNumber }}
+                                </th>
+                                @for ($i = 0; $i < 5; $i++)
+                                    @if (isset($ticket[$i]))
+                                        <td>
+                                            {{ $ticket[$i]->lottery_number }}
+                                        </td>
+                                    @else
+                                        <td>
+                                            N/A
+                                        </td>
+                                    @endif
+                                @endfor
                             </tr>
-                            @foreach ($tickets as $tryNumber => $ticket)
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                        {{ $tryNumber }}
-                                    </td>
-                                    @for ($i = 0; $i < 5; $i++)
-                                        @if (isset($ticket[$i]))
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                {{ $ticket[$i]->lottery_number }}
-                                            </td>
-                                        @else
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                N/A
-                                            </td>
-                                        @endif
-                                    @endfor
-                                </tr>
-                            @endforeach
                         @endforeach
-                    </tbody>
-                </table>
-            </div>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
-    </div>
-</x-app-layout>
+    </section>
+@endsection
+
+@section('scripts')
+@endsection
