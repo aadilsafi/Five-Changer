@@ -38,7 +38,7 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                         @foreach ($videos as $item)
                             <div class="bg-white rounded-lg overflow-hidden shadow-md video-container">
-                                <video class="w-full aspect-video video" controls>
+                                <video class="w-full aspect-video video" preload="auto" controls muted playsinline>
                                     <source src="{{ asset('storage/' . $item->url) }}" type="video/mp4" />
                                     Your browser does not support the video tag.
                                 </video>
@@ -55,7 +55,7 @@
     </div>
 
     <div id="myModal" class="fixed inset-0 bg-gray-900 bg-opacity-50 hidden justify-center items-center">
-        <div class="bg-white rounded-lg shadow-lg w-1/3 p-6">
+        <div class="bg-white rounded-lg shadow-lg w-11/12 md:w-1/2 lg:w-1/3 p-6">
             <h2 class="text-2xl font-bold mb-4">Enter Number</h2>
             <!-- Form inside the modal -->
             <form action="{{ route('lottery-ticket.store') }}" method="POST">
