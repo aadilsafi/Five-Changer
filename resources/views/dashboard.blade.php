@@ -34,7 +34,7 @@
                             <h1 class="title">Take the chance to change your life</h1>
                             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reiciendis quod nisi voluptas nulla
                                 alias reprehenderit dolores laudantium ducimus deleniti pariatur?</p>
-                            <a href="#videos" class="cmn-btn">Watch videos now!</a>
+                            <a href="#0" class="cmn-btn">Watch videos now!</a>
                         </div>
                     </div>
                 </div>
@@ -71,7 +71,7 @@
     <!-- lottery-timer-section end -->
 
     <!-- jackpot-section start -->
-    <section class="jackpot-section section-padding" id="videos">
+    <section class="jackpot-section section-padding">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-5">
