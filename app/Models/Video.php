@@ -15,6 +15,7 @@ class Video extends Model
         'description',
         'url',
         'is_active',
+        'file_type',
     ];
 
     public function scopeActive(Builder $query): void

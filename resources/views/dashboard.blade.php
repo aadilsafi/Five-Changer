@@ -86,12 +86,9 @@
             @if ($videos)
                 <div class="row gy-5">
                     @foreach ($videos as $item)
-                        @php
-                            $type = 'video/' . explode($item->url)[1];
-                        @endphp
                         <div class="col-lg-4 col-md-6">
                             <video class="w-100 aspect-video video" controls>
-                                <source src="{{ asset('storage/' . $item->url) }}" type="{{ $type }}" />
+                                <source src="{{ asset('storage/' . $item->url) }}" type="video/{{ $item->file_type }}" />
                                 Your browser does not support the video tag.
                             </video>
                             <div class="jackpot-item text-center">
