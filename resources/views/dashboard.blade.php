@@ -87,7 +87,7 @@
                 <div class="row gy-5">
                     @foreach ($videos as $item)
                         <div class="col-lg-4 col-md-6">
-                            <video class="w-100 aspect-video video" controls>
+                            <video class="w-100 aspect-video video" style="max-height: 190px!important" controls>
                                 <source src="{{ asset('storage/' . $item->url) }}" type="video/{{ $item->file_type }}" />
                                 Your browser does not support the video tag.
                             </video>
