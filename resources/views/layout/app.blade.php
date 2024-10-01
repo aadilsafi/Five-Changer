@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from pixner.net/sorteo/Sorteo/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 28 Sep 2024 19:43:18 GMT -->
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sorteo - Lotto HTML template</title>
+    <title>{{env('APP_NAME','Laravel')}}</title>
     <!-- site favicon -->
     <link rel="shortcut icon" type="image/png" href="{{ asset('assets/images/favicon.jpg') }}">
     <!-- fontawesome css link -->
@@ -126,7 +124,5 @@
 
     @yield('scripts')
 </body>
-
-<!-- Mirrored from pixner.net/sorteo/Sorteo/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 28 Sep 2024 19:45:07 GMT -->
 
 </html>
