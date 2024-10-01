@@ -37,9 +37,15 @@
                 @if ($videos)
                     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                         @foreach ($videos as $item)
+                            @php
+                                $type = 'video/';
+                                $video_type = explode('.', $item->url)[1];
+                                $type .= $video_type;
+                                info($type);
+                            @endphp
                             <div class="bg-white rounded-lg overflow-hidden shadow-md video-container">
                                 <video class="w-full aspect-video video" preload="auto" controls muted playsinline>
-                                    <source src="{{ asset('storage/' . $item->url) }}" type="video/*" />
+                                    <source src="{{ asset('storage/' . $item->url) }}" type="{{ $type }}" />
                                     Your browser does not support the video tag.
                                 </video>
                                 <div class="p-4">
