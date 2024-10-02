@@ -30,7 +30,9 @@ class CreateLotteryNumbers extends Command
         //
         $this->info('Creating lottery numbers...');
 
-        $randomNumbers = collect(range(1, 55))->random(5)->toArray();
+        $randomNumbers = collect(range(1, 55))->shuffle()->take(5)->toArray();
+
+        $this->info(json_encode($randomNumbers));
 
         do {
             $draw_number = Str::random(10);

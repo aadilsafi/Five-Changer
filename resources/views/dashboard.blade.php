@@ -87,7 +87,8 @@
                 <div class="row gy-5">
                     @foreach ($videos as $item)
                         <div class="col-lg-4 col-md-6">
-                            <video class="w-100 aspect-video video" style="max-height: 190px!important" controls>
+                            <video class="w-100 aspect-video video" style="max-height: 190px!important" controls playsinline
+                                muted>
                                 <source src="{{ asset('storage/' . $item->url) }}" type="video/{{ $item->file_type }}" />
                                 Your browser does not support the video tag.
                             </video>
@@ -337,8 +338,8 @@
                         </div><!-- work-steps-item end -->
                         <div class="work-steps-item">
                             <div class="work-steps-item-inner">
-                                <div class="icon"><img src="{{ asset('assets/images/svg-icons/how-work-icons/2.svg') }}"
-                                        alt="icon">
+                                <div class="icon"><img
+                                        src="{{ asset('assets/images/svg-icons/how-work-icons/2.svg') }}" alt="icon">
                                     <span class="count-num">02</span>
                                 </div>
                                 <h4 class="title">Enter</h4>
@@ -1163,87 +1164,81 @@
             <div class="modal-content">
                 <div class="modal-body">
                     <h3>Enter Number</h3>
-                    <form action="{{ route('lottery-ticket.store') }}" method="POST">
-                        @csrf
-                        <div class="mb-3">
-                            <label for="number">Number</label>
-                            <input id="number" type="number" placeholder="Enter number" name="lottery_number"
-                                min="1" max="55" step="1" class="form-control" required>
-                        </div>
-                        <div class="flex justify-content-end">
-                            <button type="submit" class="btn btn-primary btn-sm">
-                                Submit
-                            </button>
-                            <button data-bs-dismiss="modal" type="button" class="btn btn-secondary btn-sm">
-                                Close
-                            </button>
-                        </div>
-                    </form>
+                    <div class="mb-3">
+                        <label for="number">Number</label>
+                        <input id="number" type="number" placeholder="Enter number" name="lottery_number"
+                            min="1" max="55" step="1" class="form-control" required>
+                        <p id="error" class="text-danger"></p>
+                    </div>
+                    <div class="flex justify-content-end">
+                        <button type="submit" id="submitNumber" class="btn btn-primary btn-sm">
+                            Submit
+                        </button>
+                        <button data-bs-dismiss="modal" type="button" class="btn btn-secondary btn-sm">
+                            Close
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <<<<<<< HEAD <div id="myModal" class="fixed inset-0 bg-gray-900 bg-opacity-50 hidden justify-center items-center">
-        <div class="bg-white rounded-lg shadow-lg w-11/12 md:w-1/2 lg:w-1/3 p-6">
-            =======
-            {{-- <div id="myModal" class="fixed inset-0 bg-gray-900 bg-opacity-50 hidden justify-center items-center">
-        <div class="bg-white rounded-lg shadow-lg w-1/3 p-6">
->>>>>>> parent of 477ea45 (Revert "design changes")
-            <h2 class="text-2xl font-bold mb-4">Enter Number</h2>
-            <!-- Form inside the modal -->
-            <form action="{{ route('lottery-ticket.store') }}" method="POST">
-                @csrf
-                <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="number">Number</label>
-                    <input id="number" type="number" placeholder="Enter number" name="lottery_number"
-                        min="1" max="55" step="1"
-                        class="w-full px-3 py-2 border rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                        required>
-                </div>
-                <div class="flex justify-end">
-                    <button type="submit"
-                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2">
-                        Submit
-                    </button>
-                    <button type="button" id="closeModalBtn"
-                        class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
-                        Close
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div> --}}
-        @endsection
+@endsection
 
-        @section('scripts')
-            <script>
-                const modal = $('#myModal');
+@section('scripts')
+    <script>
+        const modal = $('#myModal');
 
-                const videos = document.querySelectorAll('.video');
+        const videos = document.querySelectorAll('.video');
+        const submitNumber = document.getElementById('submitNumber');
 
-                videos.forEach(video => {
-                    video.addEventListener('play', () => {
-                        const this_video = video;
-                        videos.forEach(otherVideo => {
-                            if (otherVideo !== this_video && !otherVideo.paused) {
-                                otherVideo.pause();
-                            }
-                        });
-                    });
+        submitNumber.addEventListener('click', function() {
+            const number = document.getElementById('number').value;
+            if (number) {
+                $.ajax({
+                    url: "{{ route('lottery-ticket.store') }}",
+                    type: "POST",
+                    data: {
+                        _token: "{{ csrf_token() }}",
+                        lottery_number: number,
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            modal.modal('hide');
+                            window.location.reload();
+                        }
+                        document.getElementById('error').innerHTML = response.message;
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        document.getElementById('error').innerHTML = jqXHR.responseJSON.message;
+                    }
                 });
+            }
+        });
 
-                videos.forEach(video => {
-                    video.addEventListener('ended', showModal);
+
+        videos.forEach(video => {
+            video.addEventListener('play', () => {
+                const this_video = video;
+                videos.forEach(otherVideo => {
+                    if (otherVideo !== this_video && !otherVideo.paused) {
+                        otherVideo.pause();
+                    }
                 });
+            });
+        });
 
-                function showModal() {
-                    modal.modal('show');
-                }
+        videos.forEach(video => {
+            video.addEventListener('ended', showModal);
+        });
 
-                // window.onclick = function(event) {
-                //     if (event.target == modal) {
-                //         modal.modal('hide');
-                //     }
-                // }
-            </script>
-        @endsection
+        function showModal() {
+            modal.modal('show');
+        }
+
+        // window.onclick = function(event) {
+        //     if (event.target == modal) {
+        //         modal.modal('hide');
+        //     }
+        // }
+    </script>
+@endsection
