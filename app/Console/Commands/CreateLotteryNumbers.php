@@ -22,6 +22,19 @@ class CreateLotteryNumbers extends Command
      */
     protected $description = 'This command will create lottery numbers';
 
+    private function randomNumbers($count)
+    {
+        $numbers = [];
+        do {
+            $number = rand(1, 55);
+            if (!in_array($number, $numbers)) {
+                $numbers[] = $number;
+            }
+        } while (count($numbers) < $count);
+
+        return $numbers;
+    }
+
     /**
      * Execute the console command.
      */
@@ -30,7 +43,7 @@ class CreateLotteryNumbers extends Command
         //
         $this->info('Creating lottery numbers...');
 
-        $randomNumbers = collect(range(1, 55))->shuffle()->take(5)->toArray();
+        $randomNumbers = static::randomNumbers(5);
 
         $this->info(json_encode($randomNumbers));
 
