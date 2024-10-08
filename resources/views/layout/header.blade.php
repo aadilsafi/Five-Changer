@@ -3,8 +3,8 @@
         <div class="container">
             <nav class="navbar navbar-expand-xl">
                 <a class="site-logo site-title" href="{{ route('dashboard') }}">
-                    {{-- <img src="{{ asset('assets/images/logo.png') }}" alt="site-logo"> --}}
-                    {{ config('app.name') }}
+                    <span class="site-title-blue">{!! substr(config('app.name'), 0, 2) !!} </span><span class="site-title-black">{{ substr(config('app.name'), 2) }}</span>
+
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
