@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\LotteryNumber;
+use App\Models\LotteryTicket;
 use App\Models\Video;
 use Illuminate\Http\Request;
 use Illuminate\Support\Lottery;
@@ -14,10 +15,24 @@ class HomeController extends Controller
     {
         $last_draw = LotteryNumber::latest('id')->skip(1)->first();
         $videos = Video::active()->get();
+        $numbers = range(1, 55);
+        $grid = array_chunk($numbers, 8);
+
+        $user_numbers = LotteryTicket::where('lottery_number_id', function ($query) {
+            $query->from('lottery_tickets')->selectRaw('MAX(lottery_number_id)');
+        })->where('try_number', function ($query) {
+            $query->from('lottery_tickets')->selectRaw('MAX(try_number)');
+        })->pluck('lottery_number')->toArray();
+
+        if(count($user_numbers) >= 5) {
+            $user_numbers = array();
+        }
 
         return view('dashboard', compact(
             'videos',
             'last_draw',
+            'user_numbers',
+            'grid'
         ));
     }
 }
