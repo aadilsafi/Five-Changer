@@ -340,6 +340,7 @@
 
         submitNumber.addEventListener('click', function() {
             const number = document.getElementById('number').value;
+            const user_video_id = @json($user_video_id);
             if (number) {
                 $.ajax({
                     url: "{{ route('lottery-ticket.store') }}",
@@ -347,6 +348,7 @@
                     data: {
                         _token: "{{ csrf_token() }}",
                         lottery_number: number,
+                        video_id: user_video_id,
                     },
                     success: function(response) {
                         if (response.success) {

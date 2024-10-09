@@ -14,7 +14,13 @@ class HomeController extends Controller
     public function index()
     {
         $last_draw = LotteryNumber::latest('id')->skip(1)->first();
-        $videos = Video::active()->get();
+        $user = auth()->user();
+        $videos = Video::active()->where('id','>',$user->video_id ?? 0)->first();
+        if(!$videos){
+            $videos = Video::active()->first();
+        }
+        $user_video_id = $videos?->id ?? null;
+        $videos = [$videos];
         $numbers = range(1, 55);
         $grid = array_chunk($numbers, 8);
 
@@ -32,7 +38,8 @@ class HomeController extends Controller
             'videos',
             'last_draw',
             'user_numbers',
-            'grid'
+            'grid',
+            'user_video_id'
         ));
     }
 }
