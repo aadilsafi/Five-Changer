@@ -36,7 +36,7 @@
                             <tr>
                                 <td colspan="6"
                                     class="px-6 py-4 whitespace-nowrap text-sm font-bold text-gray-900">
-                                    Draw # {{ $tickets->first()->first()->lotteryNumber->draw_number }}
+                                    Draw # {{ $tickets->first()->first()->drawNumber->draw_number }}
                                 </td>
                             </tr>
                             @foreach ($tickets as $tryNumber => $ticket)

@@ -13,16 +13,20 @@ class LotteryTicketController extends Controller
 
     public function index()
     {
-        $lottertTickets = LotteryTicket::with('lotteryNumber:id,draw_number')
+        $lottertTickets = LotteryTicket::with('drawNumber:id,draw_number')
             ->select('id', 'lottery_number', 'try_number', 'lottery_number_id')
             ->where('user_id', auth()->user()->id)
             ->where('lottery_number_id', function ($query) {
                 $query->from('lottery_tickets')->selectRaw('MAX(lottery_number_id)');
             })
+            ->latest('id')
             ->get()
             ->groupBy(['lottery_number_id', 'try_number']);
+        // return $lottertTickets;
+        $numbers = range(1, 55);
+        $grid = array_chunk($numbers, 8);
 
-        return view('lottery-ticket.index', compact('lottertTickets'));
+        return view('lottery-ticket.index', compact('lottertTickets', 'grid'));
     }
 
     public function store(Request $request)

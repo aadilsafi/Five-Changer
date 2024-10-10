@@ -21,8 +21,8 @@ class LotteryTicket extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function lotteryNumber()
+    public function drawNumber()
     {
-        return $this->belongsTo(LotteryNumber::class);
+        return $this->belongsTo(LotteryNumber::class, 'lottery_number_id');
     }
 }
