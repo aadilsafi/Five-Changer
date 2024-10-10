@@ -26,6 +26,7 @@ class WinnerList extends BaseWidget
         ])->sort()->values()->implode(',');
 
         $matchingRecords = LotteryTicket::select('user_id', 'try_number', DB::raw('GROUP_CONCAT(lottery_number ORDER BY lottery_number ASC) AS lottery_numbers'))
+            ->where('lottery_number_id', $latest_lottery->id)
             ->groupBy('user_id', 'try_number')
             ->having(DB::raw('GROUP_CONCAT(lottery_number ORDER BY lottery_number ASC)'), '=', $latestNumbersSorted)
             ->orderBy('user_id')
