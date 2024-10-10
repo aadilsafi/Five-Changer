@@ -22,12 +22,34 @@
             align-items: center;
             background-color: #e9ecef;
             margin: auto;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .grid-item::before {
+            content: '';
+            position: absolute;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform 0.5s, opacity 0.5s;
+            opacity: 0;
+        }
+
+        .grid-item:active::before {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
         }
 
         .grid-item.selected {
             border-color: #5a987e;
             background-color: #315d3c;
             color: #fff;
+            cursor: not-allowed;
         }
 
         @media (max-width: 768px) {
@@ -297,34 +319,36 @@
     </section>
     <!-- work-steps-section strat -->
 
-    <div class="modal" tabindex="-1" id="myModal">
+    <div class="modal d-block" tabindex="-1" id="myModal">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-body">
-                    <h3>Enter Number</h3>
+                    <h3>Select Number</h3>
+                    <p id="error" class="text-danger"></p>
+                    <p id="success" class="text-success"></p>
                     <div class="grid-container">
                         @foreach ($grid as $row)
                             @foreach ($row as $number)
-                                <div class="grid-item {{ in_array($number, $user_numbers) ? 'selected' : '' }}">
+                                <div class="grid-item {{ in_array($number, $user_numbers) ? 'selected' : '' }}"
+                                    data-number="{{ $number }}">
                                     {{ $number }}
                                 </div>
                             @endforeach
                         @endforeach
                     </div>
-                    <div class="mb-3">
+                    {{-- <div class="mb-3">
                         <label for="number">Number</label>
                         <input id="number" type="number" placeholder="Enter number" name="lottery_number"
                             min="1" max="55" step="1" class="form-control" required>
-                        <p id="error" class="text-danger"></p>
-                    </div>
-                    <div class="flex justify-content-end">
+                    </div> --}}
+                    {{-- <div class="flex justify-content-end">
                         <button type="submit" id="submitNumber" class="btn btn-primary btn-sm">
                             Submit
                         </button>
                         <button data-bs-dismiss="modal" type="button" class="btn btn-secondary btn-sm">
                             Close
                         </button>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
@@ -334,12 +358,44 @@
 @section('scripts')
     <script>
         const modal = $('#myModal');
+        const gridItems = $('.grid-item');
 
         const videos = document.querySelectorAll('.video');
-        const submitNumber = document.getElementById('submitNumber');
+        // const submitNumber = document.getElementById('submitNumber');
 
-        submitNumber.addEventListener('click', function() {
-            const number = document.getElementById('number').value;
+        // submitNumber.addEventListener('click', function() {
+        //     const number = document.getElementById('number').value;
+        //     const user_video_id = @json($user_video_id);
+        //     if (number) {
+        //         $.ajax({
+        //             url: "{{ route('lottery-ticket.store') }}",
+        //             type: "POST",
+        //             data: {
+        //                 _token: "{{ csrf_token() }}",
+        //                 lottery_number: number,
+        //                 video_id: user_video_id,
+        //             },
+        //             success: function(response) {
+        //                 if (response.success) {
+        //                     modal.modal('hide');
+        //                     window.location.reload();
+        //                 }
+        //                 document.getElementById('error').innerHTML = response.message;
+        //             },
+        //             error: function(jqXHR, textStatus, errorThrown) {
+        //                 document.getElementById('error').innerHTML = jqXHR.responseJSON.message;
+        //             }
+        //         });
+        //     }
+        // });
+
+        gridItems.click(function(e) {
+            gridItems.off('click');
+            let _this = $(this);
+            if (_this.hasClass('selected')) {
+                return;
+            }
+            const number = _this.data('number');
             const user_video_id = @json($user_video_id);
             if (number) {
                 $.ajax({
@@ -355,14 +411,14 @@
                             modal.modal('hide');
                             window.location.reload();
                         }
-                        document.getElementById('error').innerHTML = response.message;
+                        document.getElementById('success').innerHTML = response.message;
                     },
                     error: function(jqXHR, textStatus, errorThrown) {
                         document.getElementById('error').innerHTML = jqXHR.responseJSON.message;
                     }
                 });
             }
-        });
+        })
 
 
         videos.forEach(video => {
