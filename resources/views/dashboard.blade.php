@@ -286,7 +286,7 @@
                                     <span class="count-num">01</span>
                                 </div>
                                 <h4 class="title">Watch</h4>
-                                <p>Watch the video completely</p>
+                                <p>Schau Dir 5 Werbevideos an</p>
                             </div>
                         </div><!-- work-steps-item end -->
                         <div class="work-steps-item">
@@ -295,8 +295,8 @@
                                         src="{{ asset('assets/images/svg-icons/how-work-icons/2.svg') }}" alt="icon">
                                     <span class="count-num">02</span>
                                 </div>
-                                <h4 class="title">Enter</h4>
-                                <p>Enter your number</p>
+                                <h4 class="title">Wish</h4>
+                                <p>Wähle Deine 5 Glückszahlen</p>
                             </div>
                         </div><!-- work-steps-item end -->
                         <div class="work-steps-item">
@@ -306,7 +306,7 @@
                                     <span class="count-num">01</span>
                                 </div>
                                 <h4 class="title">win</h4>
-                                <p>Start dreaming, you're almost there</p>
+                                <p>Hab die Chance auf den Jackpot</p>
                             </div>
                         </div><!-- work-steps-item end -->
                     </div>
@@ -314,7 +314,7 @@
                 <div class="col-lg-6">
                     <div class="work-steps-thumb-part">
                         <img src="{{ asset('assets/images/elements/step.png') }}" alt="work-step-image">
-                        <a href="https://www.youtube.com/embed/aFYlAzQHnY4" data-rel="lightcase:myCollection"
+                        <a href="#!" data-rel="lightcase:myCollection"
                             class="play-btn"><i class="fa fa-play"></i></a>
                     </div>
                 </div>

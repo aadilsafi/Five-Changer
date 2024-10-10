@@ -17,15 +17,17 @@ class WinnerList extends BaseWidget
     {
         $latest_lottery = LotteryNumber::latest('id')->first();
 
-        $matchingRecords = LotteryTicket::select('user_id', 'try_number', DB::raw('GROUP_CONCAT(lottery_number ORDER BY id ASC) AS lottery_numbers'))
+        $latestNumbersSorted = collect([
+            $latest_lottery->number_one,
+            $latest_lottery->number_two,
+            $latest_lottery->number_three,
+            $latest_lottery->number_four,
+            $latest_lottery->number_five
+        ])->sort()->values()->implode(',');
+
+        $matchingRecords = LotteryTicket::select('user_id', 'try_number', DB::raw('GROUP_CONCAT(lottery_number ORDER BY lottery_number ASC) AS lottery_numbers'))
             ->groupBy('user_id', 'try_number')
-            ->having(DB::raw('GROUP_CONCAT(lottery_number ORDER BY id ASC)'), '=', implode(',', [
-                $latest_lottery->number_one,
-                $latest_lottery->number_two,
-                $latest_lottery->number_three,
-                $latest_lottery->number_four,
-                $latest_lottery->number_five
-            ]))
+            ->having(DB::raw('GROUP_CONCAT(lottery_number ORDER BY lottery_number ASC)'), '=', $latestNumbersSorted)
             ->orderBy('user_id')
             ->orderBy('try_number')
             ->get();
