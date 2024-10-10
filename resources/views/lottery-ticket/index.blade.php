@@ -15,8 +15,8 @@
         }
 
         .grid-item {
-            width: 60px;
-            height: 60px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             border: 2px solid #ccc;
             text-align: center;
@@ -41,12 +41,12 @@
 
         @media (max-width: 576px) {
             .grid-container {
-                grid-template-columns: repeat(4, 1fr);
+                grid-template-columns: repeat(5, 1fr);
             }
 
             .grid-item {
-                width: 50px;
-                height: 50px;
+                width: 40px;
+                height: 40px;
             }
         }
     </style>
@@ -61,7 +61,7 @@
                         <h4>Draw # {{ $tickets->first()->first()->drawNumber->draw_number }}</h4>
                     </div>
                     @foreach ($tickets as $tryNumber => $ticket)
-                        <div class="col-xl-6">
+                        <div class="col-xl-4">
                             <div>
                                 <h5>Try # {{ $tryNumber }}</h5>
                             </div>
