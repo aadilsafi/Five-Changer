@@ -99,9 +99,12 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="banner-content">
-                            <h1 class="title">Take the chance to change your life</h1>
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reiciendis quod nisi voluptas nulla
-                                alias reprehenderit dolores laudantium ducimus deleniti pariatur?</p>
+                            <h1 class="title">Lotto spielen – ganz ohne Kosten!</h1>
+                            <p>Es klingt fast zu gut, um wahr zu sein – aber es ist wirklich so! Statt Geld für Deinen
+                                Lottoschein zu zahlen, siehst Du einfach nur 5 kurze Werbevideos. Danach ist Dein
+                                Tippschein vollständig „bezahlt“ und Du bist im Rennen um den Jackpot!</p>
+                            <p>Das Beste daran: Du kannst so oft teilnehmen, wie Du möchtest, und damit Deine Chancen
+                                auf den großen Gewinn erheblich steigern.</p>
                             <a href="#videos" class="cmn-btn">Watch videos now!</a>
                         </div>
                     </div>
@@ -117,9 +120,10 @@
             <div class="row justify-content-between">
                 <div class="col-xl-6">
                     <div class="timer-content">
-                        <h3 class="title">Test your luck</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita placeat odit rerum eius illo
-                            corrupti quos error ad voluptates tempora?</p>
+                        <h3 class="title">Countdown zur nächsten Ziehung</h3>
+                        <p>Die Ziehung der 5 Gewinnzahlen findet jeden Montag um 12 Uhr (deutscher Zeit) direkt hier
+                            auf der Webseite statt. In Deinem persönlichen Kundenkonto kannst Du jederzeit einsehen,
+                            mit welchen Tippscheinen Du an der kommenden Ziehung teilnimmst.</p>
                     </div>
                 </div>
                 <div class="col-xl-6 text-center">
@@ -144,10 +148,10 @@
             <div class="row justify-content-center">
                 <div class="col-lg-5">
                     <div class="section-header text-center">
-                        <h2 class="section-title">Videos</h2>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio culpa veniam fugit ipsum,
-                            non, praesentium nemo, officiis neque enim esse recusandae maxime porro provident quos placeat
-                            qui excepturi corrupti quas?</p>
+                        <h2 class="section-title">Starte das Video und wähle Deine Zahl!</h2>
+                        <p>Nach jedem Video kannst Du eine Zahl aus unserem AdLotto 5 aus 55 auswählen. Sobald
+                            Du 5 Videos angesehen hast, hast Du alle 5 Zahlen beisammen und Deinen ersten
+                            Tippschein erstellt – komplett kostenlos, aber mit voller Chance auf den Jackpot!</p>
                     </div>
                 </div>
             </div>
@@ -319,7 +323,7 @@
     </section>
     <!-- work-steps-section strat -->
 
-    <div class="modal d-block" tabindex="-1" id="myModal">
+    <div class="modal" tabindex="-1" id="myModal">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-body">
