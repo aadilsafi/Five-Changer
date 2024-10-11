@@ -58,6 +58,9 @@
             @foreach ($lottertTickets as $tickets)
                 <div class="row" style="row-gap: 1.25rem">
                     <div>
+                        Hier siehst Du alle Deine gültigen Lottoscheine für die nächste Ziehung am Montag um 12 Uhr. Solltest Du gewinnen, wirst Du automatisch per E-Mail von uns benachrichtigt.
+                    </div>
+                    <div>
                         <h4>Draw # {{ $tickets->first()->first()->drawNumber->draw_number }}</h4>
                     </div>
                     @foreach ($tickets as $tryNumber => $ticket)

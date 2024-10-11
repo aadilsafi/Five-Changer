@@ -114,8 +114,48 @@
     </section>
     <!-- banner-section end -->
 
-    <!-- lottery-timer-section start -->
-    <section class="lottery-timer-section">
+
+
+    <!-- jackpot-section start -->
+    <section class="jackpot-section section-padding" id="videos">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-5">
+                    <div class="section-header text-center">
+                        <h2 class="section-title">Starte das Video und wähle Deine Zahl!</h2>
+                        <p>Nach jedem Video kannst Du eine Zahl aus unserem AdLotto 5 aus 55 auswählen. Sobald
+                            Du 5 Videos angesehen hast, hast Du alle 5 Zahlen beisammen und Deinen ersten
+                            Tippschein erstellt – komplett kostenlos, aber mit voller Chance auf den Jackpot!</p>
+                    </div>
+                </div>
+            </div>
+            @if ($videos)
+                <div class="row gy-5" style="justify-content: center">
+                    @foreach ($videos as $item)
+                        <div class="col-lg-4 col-md-6">
+                            <video class="w-100 aspect-video video" style="max-height: 190px!important" controls playsinline
+                                muted>
+                                <source src="{{ asset('storage/' . $item->url) }}" type="video/{{ $item->file_type }}" />
+                                Your browser does not support the video tag.
+                            </video>
+                            <div class="jackpot-item text-center">
+                                <div>
+                                    <h4>{{ $item->title }}</h4>
+                                    <p class="text-gray">{{ $item->description }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            @endif
+        </div>
+    </section>
+    {{-- this text goes here --}}
+
+    Interessiert an der Werbung?
+Kein Problem! Du kannst sie einfach anklicken, um mehr Informationen zu erhalten. Sie öffnen sich in einem neuen Fenster, und Du kannst später bequem zu AdLotto zurückkehren, um an Deinem Tippschein weiterzuarbeiten.
+     <!-- lottery-timer-section start -->
+     <section class="lottery-timer-section">
         <div class="container">
             <div class="row justify-content-between">
                 <div class="col-xl-6">
@@ -141,126 +181,10 @@
         </div>
     </section>
     <!-- lottery-timer-section end -->
-
-    <!-- jackpot-section start -->
-    <section class="jackpot-section section-padding" id="videos">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-5">
-                    <div class="section-header text-center">
-                        <h2 class="section-title">Starte das Video und wähle Deine Zahl!</h2>
-                        <p>Nach jedem Video kannst Du eine Zahl aus unserem AdLotto 5 aus 55 auswählen. Sobald
-                            Du 5 Videos angesehen hast, hast Du alle 5 Zahlen beisammen und Deinen ersten
-                            Tippschein erstellt – komplett kostenlos, aber mit voller Chance auf den Jackpot!</p>
-                    </div>
-                </div>
-            </div>
-            @if ($videos)
-                <div class="row gy-5">
-                    @foreach ($videos as $item)
-                        <div class="col-lg-4 col-md-6">
-                            <video class="w-100 aspect-video video" style="max-height: 190px!important" controls playsinline
-                                muted>
-                                <source src="{{ asset('storage/' . $item->url) }}" type="video/{{ $item->file_type }}" />
-                                Your browser does not support the video tag.
-                            </video>
-                            <div class="jackpot-item text-center">
-                                <div>
-                                    <h4>{{ $item->title }}</h4>
-                                    <p class="text-gray">{{ $item->description }}</p>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            @endif
-        </div>
-    </section>
     <!-- jackpot-section start -->
 
     <!-- lottery-result-section start -->
-    <section class="lottery-result-section section-padding has_bg_image"
-        data-background="{{ asset('assets/images/bg-one.jpg') }}">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xl-6 col-lg-6">
-                    <div class="section-header text-center">
-                        <h2 class="section-title">Latest Lottery Results</h2>
-                        <p>Check your lotto results online, find all the lotto winning numbers and see if you won
-                            the latest lotto jackpots! </p>
-                    </div>
-                </div>
-            </div>
-            <div class="row gy-4">
-                <div class="col-lg-12">
-                    <div class="lottery-winning-num-part">
-                        <div class="lottery-winning-num-table">
-                            <h3 class="block-title">lottery winning numbers</h3>
-                            <div class="lottery-winning-table">
-                                @if ($last_draw)
-                                    <table>
-                                        <thead>
-                                            <tr>
-                                                <th class="name">draw #</th>
-                                                <th class="numbers">winning numbers</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>
-                                                    <div class="winner-details">
-                                                        {{ $last_draw->draw_number }}
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <ul class="number-list">
-                                                        <li>{{ $last_draw->number_one }}</li>
-                                                        <li>{{ $last_draw->number_two }}</li>
-                                                        <li>{{ $last_draw->number_three }}</li>
-                                                        <li>{{ $last_draw->number_four }}</li>
-                                                        <li>{{ $last_draw->number_five }}</li>
-                                                    </ul>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                @endif
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {{-- <div class="col-lg-4">
-                    <div class="winner-part">
-                        <h3 class="block-title">our winners</h3>
-                        <div class="winner-list">
-                            <div class="winner-single">
-                                <div class="winner-header"><img src="{{ asset('assets/images/flag/1.jpg') }}"
-                                        alt="flag"><span class="name">vola pitmar</span></div>
-                                <p><span class="lottery-name">Cancer Charity</span><span class="date">30/05/2018</span>
-                                </p>
-                                <h5 class="prize-amount">€500.00</h5>
-                            </div><!-- winner-single end -->
-                            <div class="winner-single">
-                                <div class="winner-header"><img src="{{ asset('assets/images/flag/4.jpg') }}"
-                                        alt="flag"><span class="name">cay colon</span></div>
-                                <p><span class="lottery-name">Powerball</span><span class="date">30/05/2018</span></p>
-                                <h5 class="prize-amount">€340.00</h5>
-                            </div><!-- winner-single end -->
-                            <div class="winner-single">
-                                <div class="winner-header"><img src="{{ asset('assets/images/flag/5.jpg') }}"
-                                        alt="flag"><span class="name">irez newtkon</span></div>
-                                <p><span class="lottery-name">Powerball</span><span class="date">30/05/2018</span></p>
-                                <h5 class="prize-amount">€130.00</h5>
-                            </div><!-- winner-single end -->
-                        </div>
-                    </div>
-                </div> --}}
-                {{-- <div class="col-lg-12 text-center">
-                    <a href="#" class="text-btn">see all result</a>
-                </div> --}}
-            </div>
-        </div>
-    </section>
+
     <!-- lottery-result-section end -->
 
     <!-- work-steps-section strat -->
@@ -274,9 +198,9 @@
                     </div>
                 </div>
             </div>
-            <div class="row align-items-center justify-content-between">
+            <div class="row align-items-center justify-content-center">
                 <div class="col-xl-5 col-lg-6">
-                    <div class="work-steps-items-part d-flex">
+                    <div class="work-steps-items-part d-flex items-center">
                         <div class="line"><img src="{{ asset('assets/images/elements/line.png') }}" alt="line-image">
                         </div>
                         <div class="work-steps-item">
@@ -303,7 +227,7 @@
                             <div class="work-steps-item-inner">
                                 <div class="icon"><img
                                         src="{{ asset('assets/images/svg-icons/how-work-icons/3.svg') }}" alt="icon">
-                                    <span class="count-num">01</span>
+                                    <span class="count-num">03</span>
                                 </div>
                                 <h4 class="title">win</h4>
                                 <p>Hab die Chance auf den Jackpot</p>
@@ -311,13 +235,20 @@
                         </div><!-- work-steps-item end -->
                     </div>
                 </div>
-                <div class="col-lg-6">
+                {{-- this text goes here --}}
+
+                Im Jackpot: Mehr als die Hälfte der Werbeeinnahmen!
+Über die Hälfte aller gemeinsam erzielten Werbeeinnahmen fließt direkt in den Jackpot. Wer die 5 richtigen Zahlen tippt, gewinnt den Jackpot. Bei mehreren Gewinnern wird dieser gleichmäßig aufgeteilt. Bleibt der Jackpot unangetastet, wächst er bis zur nächsten Woche weiter an!
+
+Jeden Montag: Neue Ziehung bei AdLotto
+Jeden Montag um 12 Uhr gibt es hier auf AdLotto eine neue Ziehung. Die Gewinner werden automatisch per E-Mail benachrichtigt. Nach jeder Ziehung werden alle Tippscheine zurückgesetzt, und Du hast die Chance, erneut Dein Glück zu versuchen. Starte jetzt ein Video und sei dabei!
+                {{-- <div class="col-lg-6">
                     <div class="work-steps-thumb-part">
                         <img src="{{ asset('assets/images/elements/step.png') }}" alt="work-step-image">
                         <a href="#!" data-rel="lightcase:myCollection"
                             class="play-btn"><i class="fa fa-play"></i></a>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </section>
