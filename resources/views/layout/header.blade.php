@@ -15,6 +15,7 @@
                     <ul class="navbar-nav main-menu me-auto">
                         <li><a href="{{ route('dashboard') }}">So funktioniert’s</a></li>
                         <li><a href="{{ route('lottery-ticket.index') }}">Meine Lottoscheine</a>
+                        {{-- <li><a href="{{ route('privacy_policy') }}">Datenschutzhinweise</a> --}}
                             {{-- <li class="menu_has_children"><a href="#0">lotteries</a>
                             <ul class="sub-menu">
                                 <li><a href="all-lottery-one.html">all lotteries One</a></li>

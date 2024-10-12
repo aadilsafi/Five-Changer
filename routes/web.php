@@ -16,6 +16,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('/lottery-tickets', [LotteryTicketController::class, 'index'])->name('lottery-ticket.index');
     Route::post('/lottery-tickets', [LotteryTicketController::class, 'store'])->name('lottery-ticket.store');
+
+    Route::get('/privacy-policy', [HomeController::class, 'privacy_policy'])->name('privacy_policy');
 });
 
 Route::middleware('auth')->group(function () {

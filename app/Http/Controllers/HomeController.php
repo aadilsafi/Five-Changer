@@ -15,8 +15,8 @@ class HomeController extends Controller
     {
         $last_draw = LotteryNumber::latest('id')->skip(1)->first();
         $user = auth()->user();
-        $videos = Video::active()->where('id','>',$user->video_id ?? 0)->first();
-        if(!$videos){
+        $videos = Video::active()->where('id', '>', $user->video_id ?? 0)->first();
+        if (!$videos) {
             $videos = Video::active()->first();
         }
         $user_video_id = $videos?->id ?? null;
@@ -30,7 +30,7 @@ class HomeController extends Controller
             $query->from('lottery_tickets')->selectRaw('MAX(try_number)');
         })->pluck('lottery_number')->toArray();
 
-        if(count($user_numbers) >= 5) {
+        if (count($user_numbers) >= 5) {
             $user_numbers = array();
         }
 
@@ -41,5 +41,10 @@ class HomeController extends Controller
             'grid',
             'user_video_id'
         ));
+    }
+
+    public function privacy_policy()
+    {
+        return view('privacy_policy');
     }
 }

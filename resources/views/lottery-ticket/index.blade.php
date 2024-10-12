@@ -3,8 +3,8 @@
 @section('styles')
     <style>
         /* table tbody tr {
-                    border-bottom: 1px solid #e7e9ed !important;
-                } */
+                                border-bottom: 1px solid #e7e9ed !important;
+                            } */
         .grid-container {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
@@ -53,20 +53,21 @@
 @endsection
 
 @section('content')
-    <section class="jackpot-section section-padding">
+    <section class="jackpot-section section-padding @if ($lottertTickets->isEmpty()) vh-100 @endif">>
         <div class="container">
+            <p class="h5 text-center mb-3">
+                Hier siehst Du alle Deine gültigen Lottoscheine für die nächste Ziehung am Montag um 12 Uhr. Solltest Du
+                gewinnen, wirst Du automatisch per E-Mail von uns benachrichtigt.
+            </p>
             @foreach ($lottertTickets as $tickets)
+                <div>
+                    <p class="h5 mb-3">Draw # {{ $tickets->first()->first()->drawNumber->draw_number }}</p>
+                </div>
                 <div class="row" style="row-gap: 1.25rem">
-                    <div>
-                        Hier siehst Du alle Deine gültigen Lottoscheine für die nächste Ziehung am Montag um 12 Uhr. Solltest Du gewinnen, wirst Du automatisch per E-Mail von uns benachrichtigt.
-                    </div>
-                    <div>
-                        <h4>Draw # {{ $tickets->first()->first()->drawNumber->draw_number }}</h4>
-                    </div>
                     @foreach ($tickets as $tryNumber => $ticket)
                         <div class="col-xl-4">
                             <div>
-                                <h5>Try # {{ $tryNumber }}</h5>
+                                <p class="h6">Try # {{ $tryNumber }}</p>
                             </div>
                             <div class="grid-container">
                                 @foreach ($grid as $row)
@@ -82,45 +83,6 @@
                     @endforeach
                 </div>
             @endforeach
-            {{-- <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">Attempt #</th>
-                        <th scope="col">Combination # 1</th>
-                        <th scope="col">Combination # 2</th>
-                        <th scope="col">Combination # 3</th>
-                        <th scope="col">Combination # 4</th>
-                        <th scope="col">Combination # 5</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($lottertTickets as $tickets)
-                        <tr>
-                            <td colspan="6">
-                                Draw # {{ $tickets->first()->first()->drawNumber->draw_number }}
-                            </td>
-                        </tr>
-                        @foreach ($tickets as $tryNumber => $ticket)
-                            <tr>
-                                <th scope="row">
-                                    {{ $tryNumber }}
-                                </th>
-                                @for ($i = 0; $i < 5; $i++)
-                                    @if (isset($ticket[$i]))
-                                        <td>
-                                            {{ $ticket[$i]->lottery_number }}
-                                        </td>
-                                    @else
-                                        <td>
-                                            N/A
-                                        </td>
-                                    @endif
-                                @endfor
-                            </tr>
-                        @endforeach
-                    @endforeach
-                </tbody>
-            </table> --}}
         </div>
     </section>
 @endsection

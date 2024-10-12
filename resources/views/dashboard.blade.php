@@ -148,14 +148,20 @@
                     @endforeach
                 </div>
             @endif
+            <div class="section-header text-center" style="margin-bottom: 0; margin-top: 55px;">
+                <p class="h5">Interessiert an der Werbung?
+                    Kein Problem! Du kannst sie einfach anklicken, um mehr Informationen zu erhalten. Sie öffnen
+                    sich in einem neuen
+                    Fenster, und Du kannst später bequem zu AdLotto zurückkehren, um an Deinem Tippschein
+                    weiterzuarbeiten.</p>
+            </div>
         </div>
     </section>
     {{-- this text goes here --}}
 
-    Interessiert an der Werbung?
-Kein Problem! Du kannst sie einfach anklicken, um mehr Informationen zu erhalten. Sie öffnen sich in einem neuen Fenster, und Du kannst später bequem zu AdLotto zurückkehren, um an Deinem Tippschein weiterzuarbeiten.
-     <!-- lottery-timer-section start -->
-     <section class="lottery-timer-section">
+
+    <!-- lottery-timer-section start -->
+    <section class="lottery-timer-section">
         <div class="container">
             <div class="row justify-content-between">
                 <div class="col-xl-6">
@@ -215,8 +221,8 @@ Kein Problem! Du kannst sie einfach anklicken, um mehr Informationen zu erhalten
                         </div><!-- work-steps-item end -->
                         <div class="work-steps-item">
                             <div class="work-steps-item-inner">
-                                <div class="icon"><img
-                                        src="{{ asset('assets/images/svg-icons/how-work-icons/2.svg') }}" alt="icon">
+                                <div class="icon"><img src="{{ asset('assets/images/svg-icons/how-work-icons/2.svg') }}"
+                                        alt="icon">
                                     <span class="count-num">02</span>
                                 </div>
                                 <h4 class="title">Wish</h4>
@@ -225,8 +231,8 @@ Kein Problem! Du kannst sie einfach anklicken, um mehr Informationen zu erhalten
                         </div><!-- work-steps-item end -->
                         <div class="work-steps-item">
                             <div class="work-steps-item-inner">
-                                <div class="icon"><img
-                                        src="{{ asset('assets/images/svg-icons/how-work-icons/3.svg') }}" alt="icon">
+                                <div class="icon"><img src="{{ asset('assets/images/svg-icons/how-work-icons/3.svg') }}"
+                                        alt="icon">
                                     <span class="count-num">03</span>
                                 </div>
                                 <h4 class="title">win</h4>
@@ -237,18 +243,24 @@ Kein Problem! Du kannst sie einfach anklicken, um mehr Informationen zu erhalten
                 </div>
                 {{-- this text goes here --}}
 
-                Im Jackpot: Mehr als die Hälfte der Werbeeinnahmen!
-Über die Hälfte aller gemeinsam erzielten Werbeeinnahmen fließt direkt in den Jackpot. Wer die 5 richtigen Zahlen tippt, gewinnt den Jackpot. Bei mehreren Gewinnern wird dieser gleichmäßig aufgeteilt. Bleibt der Jackpot unangetastet, wächst er bis zur nächsten Woche weiter an!
-
-Jeden Montag: Neue Ziehung bei AdLotto
-Jeden Montag um 12 Uhr gibt es hier auf AdLotto eine neue Ziehung. Die Gewinner werden automatisch per E-Mail benachrichtigt. Nach jeder Ziehung werden alle Tippscheine zurückgesetzt, und Du hast die Chance, erneut Dein Glück zu versuchen. Starte jetzt ein Video und sei dabei!
-                {{-- <div class="col-lg-6">
-                    <div class="work-steps-thumb-part">
-                        <img src="{{ asset('assets/images/elements/step.png') }}" alt="work-step-image">
-                        <a href="#!" data-rel="lightcase:myCollection"
-                            class="play-btn"><i class="fa fa-play"></i></a>
-                    </div>
-                </div> --}}
+                <div class="col-12 text-center mt-2">
+                    <p class="fs-lg mb-4 h5">
+                        Im Jackpot: Mehr als die Hälfte der Werbeeinnahmen!
+                        Über die Hälfte aller gemeinsam erzielten Werbeeinnahmen fließt direkt in den Jackpot. Wer die 5
+                        richtigen
+                        Zahlen tippt, gewinnt den Jackpot. Bei mehreren Gewinnern wird dieser gleichmäßig aufgeteilt. Bleibt
+                        der
+                        Jackpot unangetastet, wächst er bis zur nächsten Woche weiter an!
+                    </p>
+                    <p class="h5">
+                        Jeden Montag: Neue Ziehung bei AdLotto
+                        Jeden Montag um 12 Uhr gibt es hier auf AdLotto eine neue Ziehung. Die Gewinner werden automatisch
+                        per
+                        E-Mail benachrichtigt. Nach jeder Ziehung werden alle Tippscheine zurückgesetzt, und Du hast die
+                        Chance,
+                        erneut Dein Glück zu versuchen. Starte jetzt ein Video und sei dabei!
+                    </p>
+                </div>
             </div>
         </div>
     </section>
