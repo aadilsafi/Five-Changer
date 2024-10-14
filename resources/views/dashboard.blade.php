@@ -194,7 +194,7 @@
     <!-- lottery-result-section end -->
 
     <!-- work-steps-section strat -->
-    <section class="work-steps-section section-padding border-top">
+    {{-- <section class="work-steps-section section-padding border-top">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-7">
@@ -241,7 +241,6 @@
                         </div><!-- work-steps-item end -->
                     </div>
                 </div>
-                {{-- this text goes here --}}
 
                 <div class="col-12 text-center mt-2">
                     <p class="fs-lg mb-4 h5">
@@ -263,7 +262,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- work-steps-section strat -->
 
     <div class="modal" tabindex="-1" id="myModal">

@@ -3,34 +3,49 @@
 @section('styles')
     <style>
         /* table tbody tr {
-                                border-bottom: 1px solid #e7e9ed !important;
-                            } */
+                                        border-bottom: 1px solid #e7e9ed !important;
+                                    } */
         .grid-container {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
             grid-template-rows: repeat(8, auto);
             gap: 10px;
             padding: 20px;
-            background-color: #f8f9fa;
+            background-color: #ffefef;
+            border: 2px solid #fe0101;
+
         }
 
         .grid-item {
+            color: #fe0101;
             width: 40px;
             height: 40px;
-            border-radius: 50%;
-            border: 2px solid #ccc;
+            border: 2px solid #fe0101;
             text-align: center;
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #e9ecef;
             margin: auto;
         }
 
         .grid-item.selected {
-            border-color: #5a987e;
-            background-color: #315d3c;
-            color: #fff;
+            position: relative;
+        }
+
+        .selected::before,
+        .selected::after {
+            content: '';
+            position: absolute;
+            width: 80%;
+            height: 3px;
+            background-color: black;
+            top: 50%;
+            left: 10%;
+            transform: translateY(-50%) rotate(45deg);
+        }
+
+        .selected::after {
+            transform: translateY(-50%) rotate(-45deg);
         }
 
         @media (max-width: 768px) {
@@ -67,7 +82,7 @@
                     @foreach ($tickets as $tryNumber => $ticket)
                         <div class="col-xl-4">
                             <div>
-                                <p class="h6">Try # {{ $tryNumber }}</p>
+                                <p class="h6">Spiel # {{ $tryNumber }}</p>
                             </div>
                             <div class="grid-container">
                                 @foreach ($grid as $row)

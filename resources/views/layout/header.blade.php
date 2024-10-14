@@ -2,7 +2,7 @@
     <div class="header-bottom">
         <div class="container">
             <nav class="navbar navbar-expand-xl">
-                <a class="site-logo site-title" href="{{ route('dashboard') }}">
+                <a class="site-logo site-title" href="{{ route('home.index') }}">
                     <span class="site-title-blue">{!! substr(config('app.name'), 0, 2) !!} </span><span class="site-title-black">{{ substr(config('app.name'), 2) }}</span>
 
                 </a>
@@ -47,8 +47,12 @@
                     <div class="header-join-part d-flex justify-content-center align-items-center">
                         @auth
                             <div class="px-4 d-flex gap-3 ">
-                                <div class="fw-bold">{{ Auth::user()->name }}</div>
-                                <div class="fw-bold">{{ Auth::user()->email }}</div>
+                                <div class="fw-bold">
+                                    <a href="{{ route('customer.profile') }}">
+                                        {{ Auth::user()->name }}
+                                    </a>
+                                </div>
+                                {{-- <div class="fw-bold">{{ Auth::user()->email }}</div> --}}
                             </div>
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf

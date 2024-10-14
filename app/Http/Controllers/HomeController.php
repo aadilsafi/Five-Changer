@@ -42,6 +42,10 @@ class HomeController extends Controller
             'user_video_id'
         ));
     }
+    public function so_funktionierts()
+    {
+        return view('so_funktionierts');
+    }
 
     public function privacy_policy()
     {
