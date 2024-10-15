@@ -10,8 +10,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-7">
                     <div class="section-header text-center">
-                        <h2 class="section-title">how it works</h2>
-                        <p>You can really win here!</p>
+                        <h2 class="section-title" style="text-transform: none">So funktioniert’s</h2>
                     </div>
                 </div>
             </div>
@@ -55,7 +54,11 @@
 
                 <div class="col-12 text-center mt-2">
                     <p class="fs-lg mb-4 h5">
-                        Im Jackpot: Mehr als die Hälfte der Werbeeinnahmen!
+                        <b>
+                            Im Jackpot: Mehr als die Hälfte der Werbeeinnahmen!
+                        </b>
+                        <br>
+                        <br>
                         Über die Hälfte aller gemeinsam erzielten Werbeeinnahmen fließt direkt in den Jackpot. Wer die 5
                         richtigen
                         Zahlen tippt, gewinnt den Jackpot. Bei mehreren Gewinnern wird dieser gleichmäßig aufgeteilt. Bleibt
@@ -63,7 +66,11 @@
                         Jackpot unangetastet, wächst er bis zur nächsten Woche weiter an!
                     </p>
                     <p class="h5">
-                        Jeden Montag: Neue Ziehung bei AdLotto
+                        <b>
+                            Jeden Montag: Neue Ziehung bei AdLotto
+                        </b>
+                        <br>
+                        <br>
                         Jeden Montag um 12 Uhr gibt es hier auf AdLotto eine neue Ziehung. Die Gewinner werden automatisch
                         per
                         E-Mail benachrichtigt. Nach jeder Ziehung werden alle Tippscheine zurückgesetzt, und Du hast die

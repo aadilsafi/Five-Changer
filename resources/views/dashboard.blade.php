@@ -8,25 +8,25 @@
             grid-template-rows: repeat(8, auto);
             gap: 10px;
             padding: 20px;
-            background-color: #f8f9fa;
+            background-color: #ffefef;
+            border: 2px solid #fe0101;
         }
 
         .grid-item {
+            color: #fe0101;
             width: 60px;
             height: 60px;
-            border-radius: 50%;
-            border: 2px solid #ccc;
+            border: 2px solid #fe0101;
             text-align: center;
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #e9ecef;
             margin: auto;
             cursor: pointer;
             position: relative;
         }
 
-        .grid-item::before {
+        /* .grid-item::before {
             content: '';
             position: absolute;
             background: rgba(0, 0, 0, 0.3);
@@ -43,13 +43,30 @@
         .grid-item:active::before {
             transform: translate(-50%, -50%) scale(1);
             opacity: 1;
-        }
+        } */
 
         .grid-item.selected {
-            border-color: #5a987e;
-            background-color: #315d3c;
-            color: #fff;
+            position: relative;
+            /* border-color: #5a987e; */
+            /* background-color: #315d3c; */
+            /* color: #fff; */
             cursor: not-allowed;
+        }
+
+        .grid-item.selected::before,
+        .grid-item.selected::after {
+            content: '';
+            position: absolute;
+            width: 80%;
+            height: 3px;
+            background-color: black;
+            top: 50%;
+            left: 10%;
+            transform: translateY(-50%) rotate(45deg);
+        }
+
+        .grid-item.selected::after {
+            transform: translateY(-50%) rotate(-45deg);
         }
 
         @media (max-width: 768px) {
@@ -105,7 +122,7 @@
                                 Tippschein vollständig „bezahlt“ und Du bist im Rennen um den Jackpot!</p>
                             <p>Das Beste daran: Du kannst so oft teilnehmen, wie Du möchtest, und damit Deine Chancen
                                 auf den großen Gewinn erheblich steigern.</p>
-                            <a href="#videos" class="cmn-btn">Watch videos now!</a>
+                            {{-- <a href="#videos" class="cmn-btn">Watch videos now!</a> --}}
                         </div>
                     </div>
                 </div>
@@ -122,7 +139,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-5">
                     <div class="section-header text-center">
-                        <h2 class="section-title">Starte das Video und wähle Deine Zahl!</h2>
+                        <h2 class="section-title" style="text-transform: none">Starte das Video und wähle Deine Zahl!</h2>
                         <p>Nach jedem Video kannst Du eine Zahl aus unserem AdLotto 5 aus 55 auswählen. Sobald
                             Du 5 Videos angesehen hast, hast Du alle 5 Zahlen beisammen und Deinen ersten
                             Tippschein erstellt – komplett kostenlos, aber mit voller Chance auf den Jackpot!</p>
@@ -177,93 +194,9 @@
                         <div class="clock"></div>
                     </div>
                 </div>
-                {{-- <div class="col-xl-2">
-                    <div class="link-area text-center">
-                        <a href="#0" class="border-btn">register & play</a>
-                        <a href="#0" class="text-btn">view all offer</a>
-                    </div>
-                </div> --}}
             </div>
         </div>
     </section>
-    <!-- lottery-timer-section end -->
-    <!-- jackpot-section start -->
-
-    <!-- lottery-result-section start -->
-
-    <!-- lottery-result-section end -->
-
-    <!-- work-steps-section strat -->
-    {{-- <section class="work-steps-section section-padding border-top">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-7">
-                    <div class="section-header text-center">
-                        <h2 class="section-title">how it works</h2>
-                        <p>You can really win here!</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row align-items-center justify-content-center">
-                <div class="col-xl-5 col-lg-6">
-                    <div class="work-steps-items-part d-flex items-center">
-                        <div class="line"><img src="{{ asset('assets/images/elements/line.png') }}" alt="line-image">
-                        </div>
-                        <div class="work-steps-item">
-                            <div class="work-steps-item-inner">
-                                <div class="icon"><img src="{{ asset('assets/images/svg-icons/how-work-icons/1.svg') }}"
-                                        alt="icon">
-                                    <span class="count-num">01</span>
-                                </div>
-                                <h4 class="title">Watch</h4>
-                                <p>Schau Dir 5 Werbevideos an</p>
-                            </div>
-                        </div><!-- work-steps-item end -->
-                        <div class="work-steps-item">
-                            <div class="work-steps-item-inner">
-                                <div class="icon"><img src="{{ asset('assets/images/svg-icons/how-work-icons/2.svg') }}"
-                                        alt="icon">
-                                    <span class="count-num">02</span>
-                                </div>
-                                <h4 class="title">Wish</h4>
-                                <p>Wähle Deine 5 Glückszahlen</p>
-                            </div>
-                        </div><!-- work-steps-item end -->
-                        <div class="work-steps-item">
-                            <div class="work-steps-item-inner">
-                                <div class="icon"><img src="{{ asset('assets/images/svg-icons/how-work-icons/3.svg') }}"
-                                        alt="icon">
-                                    <span class="count-num">03</span>
-                                </div>
-                                <h4 class="title">win</h4>
-                                <p>Hab die Chance auf den Jackpot</p>
-                            </div>
-                        </div><!-- work-steps-item end -->
-                    </div>
-                </div>
-
-                <div class="col-12 text-center mt-2">
-                    <p class="fs-lg mb-4 h5">
-                        Im Jackpot: Mehr als die Hälfte der Werbeeinnahmen!
-                        Über die Hälfte aller gemeinsam erzielten Werbeeinnahmen fließt direkt in den Jackpot. Wer die 5
-                        richtigen
-                        Zahlen tippt, gewinnt den Jackpot. Bei mehreren Gewinnern wird dieser gleichmäßig aufgeteilt. Bleibt
-                        der
-                        Jackpot unangetastet, wächst er bis zur nächsten Woche weiter an!
-                    </p>
-                    <p class="h5">
-                        Jeden Montag: Neue Ziehung bei AdLotto
-                        Jeden Montag um 12 Uhr gibt es hier auf AdLotto eine neue Ziehung. Die Gewinner werden automatisch
-                        per
-                        E-Mail benachrichtigt. Nach jeder Ziehung werden alle Tippscheine zurückgesetzt, und Du hast die
-                        Chance,
-                        erneut Dein Glück zu versuchen. Starte jetzt ein Video und sei dabei!
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section> --}}
-    <!-- work-steps-section strat -->
 
     <div class="modal" tabindex="-1" id="myModal">
         <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -282,19 +215,6 @@
                             @endforeach
                         @endforeach
                     </div>
-                    {{-- <div class="mb-3">
-                        <label for="number">Number</label>
-                        <input id="number" type="number" placeholder="Enter number" name="lottery_number"
-                            min="1" max="55" step="1" class="form-control" required>
-                    </div> --}}
-                    {{-- <div class="flex justify-content-end">
-                        <button type="submit" id="submitNumber" class="btn btn-primary btn-sm">
-                            Submit
-                        </button>
-                        <button data-bs-dismiss="modal" type="button" class="btn btn-secondary btn-sm">
-                            Close
-                        </button>
-                    </div> --}}
                 </div>
             </div>
         </div>
@@ -307,33 +227,6 @@
         const gridItems = $('.grid-item');
 
         const videos = document.querySelectorAll('.video');
-        // const submitNumber = document.getElementById('submitNumber');
-
-        // submitNumber.addEventListener('click', function() {
-        //     const number = document.getElementById('number').value;
-        //     const user_video_id = @json($user_video_id);
-        //     if (number) {
-        //         $.ajax({
-        //             url: "{{ route('lottery-ticket.store') }}",
-        //             type: "POST",
-        //             data: {
-        //                 _token: "{{ csrf_token() }}",
-        //                 lottery_number: number,
-        //                 video_id: user_video_id,
-        //             },
-        //             success: function(response) {
-        //                 if (response.success) {
-        //                     modal.modal('hide');
-        //                     window.location.reload();
-        //                 }
-        //                 document.getElementById('error').innerHTML = response.message;
-        //             },
-        //             error: function(jqXHR, textStatus, errorThrown) {
-        //                 document.getElementById('error').innerHTML = jqXHR.responseJSON.message;
-        //             }
-        //         });
-        //     }
-        // });
 
         gridItems.click(function(e) {
             gridItems.off('click');
@@ -355,9 +248,15 @@
                     success: function(response) {
                         if (response.success) {
                             modal.modal('hide');
+                            if (response.tries == 5) {
+                                alert(
+                                    'Herzlichen Glückwunsch! Nun ist Dein Tippschein komplett. Unter Meine Lottoscheine findest Du all Deine Tippscheine, die bei der nächsten Ziehung teilnehmen. Starte jetzt mit dem nächsten Tippschein und erhöhe Deine Chancen auf den Jackpot'
+                                )
+                            }
                             window.location.reload();
+                        } else {
+                            document.getElementById('error').innerHTML = response.message;
                         }
-                        document.getElementById('success').innerHTML = response.message;
                     },
                     error: function(jqXHR, textStatus, errorThrown) {
                         document.getElementById('error').innerHTML = jqXHR.responseJSON.message;
@@ -385,11 +284,5 @@
         function showModal() {
             modal.modal('show');
         }
-
-        // window.onclick = function(event) {
-        //     if (event.target == modal) {
-        //         modal.modal('hide');
-        //     }
-        // }
     </script>
 @endsection

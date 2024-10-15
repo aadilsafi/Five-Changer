@@ -2,9 +2,6 @@
 
 @section('styles')
     <style>
-        /* table tbody tr {
-                                        border-bottom: 1px solid #e7e9ed !important;
-                                    } */
         .grid-container {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
@@ -13,7 +10,6 @@
             padding: 20px;
             background-color: #ffefef;
             border: 2px solid #fe0101;
-
         }
 
         .grid-item {

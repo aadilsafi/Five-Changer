@@ -96,30 +96,32 @@
     <script src="{{ asset('assets/js/main.js') }}"></script>
     <script>
         const now = new Date();
-        const nextSunday = new Date();
-        if (now.getDay() !== 0) {
-            nextSunday.setDate(now.getDate() + (7 - now.getDay()));
+        const nextMonday = new Date();
+
+        // Calculate the number of days to the next Monday (if today is Monday, calculate for the following Monday)
+        if (now.getDay() !== 1) {
+            nextMonday.setDate(now.getDate() + ((8 - now.getDay()) % 7)); // Days until next Monday
         } else {
-            nextSunday.setDate(now.getDate());
-        } // Set to Sunday
-        nextSunday.setHours(23, 59, 59, 999); // End of the day
-        const differenceInMilliseconds = nextSunday - now;
+
+            if (now.getHours() < 5) {
+                nextMonday.setDate(now.getDate()); // If today is Monday, calculate for next Monday
+            } else {
+                // If after 5 AM, set nextMonday to next week's Monday at 5 AM
+                nextMonday.setDate(now.getDate() + 7);
+            }
+        }
+
+        // Set nextMonday to 5:00 AM
+        nextMonday.setHours(5, 0, 0, 0);
+
+
+        // Calculate the difference between now and next Monday 5:00 AM
+        const differenceInMilliseconds = nextMonday - now;
         const differenceInSeconds = Math.floor(differenceInMilliseconds / 1000);
         var clock = $('.clock').FlipClock(differenceInSeconds, {
             clockFace: 'DailyCounter',
             countdown: true
         });
-        // jQuery(document).ready(function() {
-        //     jQuery('#vmap').vectorMap({
-        //         map: 'world_en',
-        //         color: '#eaedef',
-        //         backgroundColor: '#f7fcff',
-        //         hoverOpacity: 0.8,
-        //         selectedColor: '#eaedef',
-        //         scaleColors: ['#f7fcff', '#f7fcff'],
-        //         normalizeFunction: 'polynomial'
-        //     });
-        // });
     </script>
 
     @yield('scripts')

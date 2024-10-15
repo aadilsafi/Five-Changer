@@ -61,7 +61,8 @@ class LotteryTicketController extends Controller
                 'try_number' => $try_number,
             ]);
             $user->update(['video_id' => $request->video_id]);
-            return response()->json(array('success' => true, 'message' => 'Lottery ticket created successfully!'));
+            $tries = $user->lotteryTickets()->where('lottery_number_id', $lottery->id)->where('try_number', $try_number)->count();
+            return response()->json(array('success' => true, 'message' => 'Lottery ticket created successfully!', 'tries' => $tries));
         } catch (\Throwable $th) {
             Log::error($th->getMessage());
             return response()->json(array('success' => false, 'message' => 'Something went wrong!'));
