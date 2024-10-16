@@ -27,23 +27,23 @@
         }
 
         /* .grid-item::before {
-            content: '';
-            position: absolute;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 50%;
-            width: 100px;
-            height: 100px;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(0);
-            transition: transform 0.5s, opacity 0.5s;
-            opacity: 0;
-        }
+                    content: '';
+                    position: absolute;
+                    background: rgba(0, 0, 0, 0.3);
+                    border-radius: 50%;
+                    width: 100px;
+                    height: 100px;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%) scale(0);
+                    transition: transform 0.5s, opacity 0.5s;
+                    opacity: 0;
+                }
 
-        .grid-item:active::before {
-            transform: translate(-50%, -50%) scale(1);
-            opacity: 1;
-        } */
+                .grid-item:active::before {
+                    transform: translate(-50%, -50%) scale(1);
+                    opacity: 1;
+                } */
 
         .grid-item.selected {
             position: relative;
@@ -215,6 +215,9 @@
                             @endforeach
                         @endforeach
                     </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
