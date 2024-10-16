@@ -24,18 +24,15 @@ class HomeController extends Controller
         $numbers = range(1, 55);
         $grid = array_chunk($numbers, 8);
 
-        $user_numbers = LotteryTicket::where('user_id', $user->id)->where('lottery_number_id', function ($query) {
-            $query->from('lottery_tickets')->selectRaw('MAX(lottery_number_id)');
-        })->where('try_number', function ($query) {
-            $query->from('lottery_tickets')->selectRaw('MAX(try_number)');
-        })->pluck('lottery_number')->toArray();
+        $latest_lottery_number_id = LotteryTicket::max('lottery_number_id');
+        $latest_try_number = LotteryTicket::where('lottery_number_id', $latest_lottery_number_id)->max('try_number');
 
-        dd($user_numbers);
+        $user_numbers = LotteryTicket::where('user_id', $user->id)->where('lottery_number_id', $latest_lottery_number_id)
+            ->where('try_number', $latest_try_number)->pluck('lottery_number')->toArray();
+
         if (count($user_numbers) >= 5) {
             $user_numbers = array();
         }
-
-        dd($user_numbers);
 
         return view('dashboard', compact(
             'videos',
