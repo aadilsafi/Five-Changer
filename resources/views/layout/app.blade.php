@@ -33,6 +33,10 @@
         .footer-bottom {
             background-color: #f8f9fa !important;
         }
+
+        .text-main {
+            color: var(--main-color);
+        }
     </style>
     @yield('styles')
 </head>
