@@ -64,7 +64,7 @@
 @endsection
 
 @section('content')
-    <section class="jackpot-section section-padding @if ($lottertTickets->isEmpty()) vh-100 @endif">>
+    <section class="jackpot-section section-padding @if ($lottertTickets->isEmpty()) vh-100 @endif">
         <div class="container">
             <p class="h5 text-center mb-3">
                 Hier siehst Du alle Deine gültigen Lottoscheine für die nächste Ziehung am Montag um 12 Uhr. Solltest Du
