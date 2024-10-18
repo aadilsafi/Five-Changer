@@ -34,6 +34,7 @@ class HomeController extends Controller
             $user_numbers = array();
         }
 
+        // dd($last_draw);
         return view('dashboard', compact(
             'videos',
             'last_draw',

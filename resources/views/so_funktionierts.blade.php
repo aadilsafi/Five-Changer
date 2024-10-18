@@ -67,11 +67,11 @@
                     </p>
                     <p class="h5">
                         <b>
-                            Jeden Montag: Neue Ziehung bei <span class="text-main h5">Ad</span>Lotto
+                            Jeden Montag: Neue Ziehung bei <span class="text-main h5">Ad<span class="h5">Lotto</span></span>
                         </b>
                         <br>
                         <br>
-                        Jeden Montag um 12 Uhr gibt es hier auf <span class="text-main h5">Ad</span>Lotto eine neue Ziehung. Die Gewinner werden automatisch
+                        Jeden Montag um 12 Uhr gibt es hier auf <span class="text-main h5">Ad<span class="h5">Lotto</span></span> eine neue Ziehung. Die Gewinner werden automatisch
                         per
                         E-Mail benachrichtigt. Nach jeder Ziehung werden alle Tippscheine zurückgesetzt, und Du hast die
                         Chance,

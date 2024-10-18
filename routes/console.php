@@ -7,4 +7,4 @@ use Illuminate\Support\Facades\Artisan;
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->purpose('Display an inspiring quote')->hourly();
-Schedule::command('create:lottery-numbers')->weeklyOn(1, '00:00');
+Schedule::command('create:lottery-numbers')->weeklyOn(1, '14:00');

@@ -102,30 +102,35 @@
         const now = new Date();
         const nextMonday = new Date();
 
+        // Get the UTC time difference for the local time zone and Pakistan Standard Time (UTC+5)
+        const timeZoneOffsetDifference = (now.getTimezoneOffset() * 60000) + (5 * 60 * 60 * 1000); // Local timezone offset + PST
+
         // Calculate the number of days to the next Monday (if today is Monday, calculate for the following Monday)
         if (now.getDay() !== 1) {
             nextMonday.setDate(now.getDate() + ((8 - now.getDay()) % 7)); // Days until next Monday
         } else {
-
             if (now.getHours() < 5) {
-                nextMonday.setDate(now.getDate()); // If today is Monday, calculate for next Monday
+                nextMonday.setDate(now.getDate()); // If today is Monday and before 5 AM, calculate for the same Monday
             } else {
-                // If after 5 AM, set nextMonday to next week's Monday at 5 AM
+                // If after 5 AM, set nextMonday to next week's Monday
                 nextMonday.setDate(now.getDate() + 7);
             }
         }
 
-        // Set nextMonday to 5:00 AM
-        nextMonday.setHours(5, 0, 0, 0);
+        // Adjust `nextMonday` to 2:00 PM Pakistan Standard Time
+        nextMonday.setHours(14, 0, 0, 0);  // 2:00 PM
+        nextMonday.setTime(nextMonday.getTime() - timeZoneOffsetDifference);  // Adjust to PST
 
-
-        // Calculate the difference between now and next Monday 5:00 AM
+        // Calculate the difference between now and next Monday 2:00 PM Pakistan Standard Time
         const differenceInMilliseconds = nextMonday - now;
         const differenceInSeconds = Math.floor(differenceInMilliseconds / 1000);
+
+        // Initialize FlipClock with the calculated difference
         var clock = $('.clock').FlipClock(differenceInSeconds, {
             clockFace: 'DailyCounter',
             countdown: true
         });
+
     </script>
 
     @yield('scripts')

@@ -140,7 +140,7 @@
                 <div class="col-lg-5">
                     <div class="section-header text-center">
                         <h2 class="section-title" style="text-transform: none">Starte das Video und wähle Deine Zahl!</h2>
-                        <p>Nach jedem Video kannst Du eine Zahl aus unserem <span class="text-main">Ad</span>Lotto 5 aus 55 auswählen. Sobald
+                        <p>Nach jedem Video kannst Du eine Zahl aus unserem <span class="text-main">Ad<span>Lotto</span></span> 5 aus 55 auswählen. Sobald
                             Du 5 Videos angesehen hast, hast Du alle 5 Zahlen beisammen und Deinen ersten
                             Tippschein erstellt – komplett kostenlos, aber mit voller Chance auf den Jackpot!</p>
                     </div>
@@ -169,7 +169,7 @@
                 <p class="h5">Interessiert an der Werbung?
                     Kein Problem! Du kannst sie einfach anklicken, um mehr Informationen zu erhalten. Sie öffnen
                     sich in einem neuen
-                    Fenster, und Du kannst später bequem zu <span class="text-main h5">Ad</span>Lotto zurückkehren, um an Deinem Tippschein
+                    Fenster, und Du kannst später bequem zu <span class="text-main h5">Ad<span class="h5">Lotto</span></span> zurückkehren, um an Deinem Tippschein
                     weiterzuarbeiten.</p>
             </div>
         </div>
