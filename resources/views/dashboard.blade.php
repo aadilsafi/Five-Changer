@@ -231,7 +231,7 @@
 
         const videos = document.querySelectorAll('.video');
 
-        gridItems.click(function(e) {
+        gridItems.on('click', function(e) {
             gridItems.off('click');
             let _this = $(this);
             if (_this.hasClass('selected')) {
