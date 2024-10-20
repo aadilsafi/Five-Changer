@@ -15,12 +15,12 @@ class HomeController extends Controller
     {
         $last_draw = LotteryNumber::latest('id')->skip(1)->first();
         $user = auth()->user();
-        $videos = Video::active()->where('id', '>', $user->video_id ?? 0)->first();
-        if (!$videos) {
-            $videos = Video::active()->first();
+        $video = Video::active()->where('id', '>', $user->video_id ?? 0)->first();
+        if (!$video) {
+            $video = Video::active()->first();
         }
-        $user_video_id = $videos?->id ?? null;
-        $videos = [$videos];
+        $user_video_id = $video?->id ?? null;
+        // $video = [$videos];
         $numbers = range(1, 55);
         $grid = array_chunk($numbers, 8);
 
@@ -36,7 +36,7 @@ class HomeController extends Controller
 
         // dd($last_draw);
         return view('dashboard', compact(
-            'videos',
+            'video',
             'last_draw',
             'user_numbers',
             'grid',

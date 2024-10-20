@@ -27,23 +27,23 @@
         }
 
         /* .grid-item::before {
-                    content: '';
-                    position: absolute;
-                    background: rgba(0, 0, 0, 0.3);
-                    border-radius: 50%;
-                    width: 100px;
-                    height: 100px;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%) scale(0);
-                    transition: transform 0.5s, opacity 0.5s;
-                    opacity: 0;
-                }
+                                        content: '';
+                                        position: absolute;
+                                        background: rgba(0, 0, 0, 0.3);
+                                        border-radius: 50%;
+                                        width: 100px;
+                                        height: 100px;
+                                        top: 50%;
+                                        left: 50%;
+                                        transform: translate(-50%, -50%) scale(0);
+                                        transition: transform 0.5s, opacity 0.5s;
+                                        opacity: 0;
+                                    }
 
-                .grid-item:active::before {
-                    transform: translate(-50%, -50%) scale(1);
-                    opacity: 1;
-                } */
+                                    .grid-item:active::before {
+                                        transform: translate(-50%, -50%) scale(1);
+                                        opacity: 1;
+                                    } */
 
         .grid-item.selected {
             position: relative;
@@ -140,36 +140,36 @@
                 <div class="col-lg-5">
                     <div class="section-header text-center">
                         <h2 class="section-title" style="text-transform: none">Starte das Video und wähle Deine Zahl!</h2>
-                        <p>Nach jedem Video kannst Du eine Zahl aus unserem <span class="text-main">Ad<span>Lotto</span></span> 5 aus 55 auswählen. Sobald
+                        <p>Nach jedem Video kannst Du eine Zahl aus unserem <span
+                                class="text-main">Ad<span>Lotto</span></span> 5 aus 55 auswählen. Sobald
                             Du 5 Videos angesehen hast, hast Du alle 5 Zahlen beisammen und Deinen ersten
                             Tippschein erstellt – komplett kostenlos, aber mit voller Chance auf den Jackpot!</p>
                     </div>
                 </div>
             </div>
-            @if ($videos)
+            @if ($video)
                 <div class="row gy-5" style="justify-content: center">
-                    @foreach ($videos as $item)
-                        <div class="col-lg-4 col-md-6">
-                            <video class="w-100 aspect-video video" style="max-height: 190px!important" controls playsinline
-                                muted>
-                                <source src="{{ asset('storage/' . $item->url) }}" type="video/{{ $item->file_type }}" />
-                                Your browser does not support the video tag.
-                            </video>
-                            <div class="jackpot-item text-center">
-                                <div>
-                                    <h4>{{ $item->title }}</h4>
-                                    <p class="text-gray">{{ $item->description }}</p>
-                                </div>
+                    <div class="col-lg-4 col-md-6">
+                        <video class="w-100 aspect-video video" style="max-height: 190px!important" controls playsinline
+                            muted>
+                            <source src="{{ asset('storage/' . $video->url) }}" type="video/{{ $video->file_type }}" />
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="jackpot-item text-center">
+                            <div>
+                                <h4>{{ $video->title }}</h4>
+                                <p class="text-gray">{{ $video->description }}</p>
                             </div>
                         </div>
-                    @endforeach
+                    </div>
                 </div>
             @endif
             <div class="section-header text-center" style="margin-bottom: 0; margin-top: 55px;">
                 <p class="h5">Interessiert an der Werbung?
                     Kein Problem! Du kannst sie einfach anklicken, um mehr Informationen zu erhalten. Sie öffnen
                     sich in einem neuen
-                    Fenster, und Du kannst später bequem zu <span class="text-main h5">Ad<span class="h5">Lotto</span></span> zurückkehren, um an Deinem Tippschein
+                    Fenster, und Du kannst später bequem zu <span class="text-main h5 m-0">Ad<span
+                            class="h5 m-0">Lotto</span></span> zurückkehren, um an Deinem Tippschein
                     weiterzuarbeiten.</p>
             </div>
         </div>
@@ -287,5 +287,28 @@
         function showModal() {
             modal.modal('show');
         }
+
+        var video = document.querySelector('.video');
+        var supposedCurrentTime = 0;
+        video.addEventListener('timeupdate', function() {
+            if (!video.seeking) {
+                supposedCurrentTime = video.currentTime;
+            }
+        });
+        // prevent user from seeking
+        video.addEventListener('seeking', function() {
+            // guard agains infinite recursion:
+            // user seeks, seeking is fired, currentTime is modified, seeking is fired, current time is modified, ....
+            var delta = video.currentTime - supposedCurrentTime;
+            if (Math.abs(delta) > 0.01) {
+                console.log("Seeking is disabled");
+                video.currentTime = supposedCurrentTime;
+            }
+        });
+        // delete the following event handler if rewind is not required
+        // video.addEventListener('ended', function() {
+        //     // reset state in order to allow for rewind
+        //     supposedCurrentTime = 0;
+        // });
     </script>
 @endsection
