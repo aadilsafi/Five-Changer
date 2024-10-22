@@ -3,19 +3,21 @@
         <div class="container">
             <nav class="navbar navbar-expand-xl">
                 <a class="site-logo site-title" href="{{ route('home.index') }}">
-                    <span class="site-title-blue">{!! substr(config('app.name'), 0, 2) !!} </span><span class="site-title-black">{{ substr(config('app.name'), 2) }}</span>
+                    <span class="site-title-blue">{!! substr(config('app.name'), 0, 2) !!} </span><span
+                        class="site-title-black">{{ substr(config('app.name'), 2) }}</span>
 
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation">
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
                     <span class="menu-toggle"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav main-menu me-auto">
                         <li><a href="{{ route('dashboard') }}">So funktioniert’s</a></li>
                         <li><a href="{{ route('lottery-ticket.index') }}">Meine Lottoscheine</a>
-                        {{-- <li><a href="{{ route('privacy_policy') }}">Datenschutzhinweise</a> --}}
+                        <li><a href="{{ route('privacy_policy') }}">Datenschutzhinweise</a>
+                        <li><a href="{{ route('impressum') }}">Impressum</a>
                             {{-- <li class="menu_has_children"><a href="#0">lotteries</a>
                             <ul class="sub-menu">
                                 <li><a href="all-lottery-one.html">all lotteries One</a></li>
@@ -48,9 +50,9 @@
                         @auth
                             <div class="px-4 d-flex gap-3 ">
                                 <div class="fw-bold">
-                                    <a href="{{ route('customer.profile') }}">
-                                        {{ Auth::user()->name }}
-                                    </a>
+                                    {{-- <a href="{{ route('customer.profile') }}"> --}}
+                                    {{ Auth::user()->name }}
+                                    {{-- </a> --}}
                                 </div>
                                 {{-- <div class="fw-bold">{{ Auth::user()->email }}</div> --}}
                             </div>

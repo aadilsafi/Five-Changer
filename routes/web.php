@@ -15,7 +15,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/meine_lottoscheine', [LotteryTicketController::class, 'index'])->name('lottery-ticket.index');
     Route::post('/lottery-tickets', [LotteryTicketController::class, 'store'])->name('lottery-ticket.store');
 
-    Route::get('/privacy-policy', [HomeController::class, 'privacy_policy'])->name('privacy_policy');
+    Route::get('/datenschutz', [HomeController::class, 'privacy_policy'])->name('privacy_policy');
+    Route::get('/impressum', [HomeController::class, 'impressum'])->name('impressum');
 });
 
 Route::middleware('auth')->group(function () {
