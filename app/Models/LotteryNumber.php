@@ -23,13 +23,13 @@ class LotteryNumber extends Model
     {
         return Attribute::make(
             get: function (mixed $value, array $attributes) {
-                return implode(' ', [
+                return [
                     $attributes['number_one'],
                     $attributes['number_two'],
                     $attributes['number_three'],
                     $attributes['number_four'],
                     $attributes['number_five'],
-                ]);
+                ];
             },
         );
     }

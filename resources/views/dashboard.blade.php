@@ -26,30 +26,8 @@
             position: relative;
         }
 
-        /* .grid-item::before {
-                    content: '';
-                    position: absolute;
-                    background: rgba(0, 0, 0, 0.3);
-                    border-radius: 50%;
-                    width: 100px;
-                    height: 100px;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%) scale(0);
-                    transition: transform 0.5s, opacity 0.5s;
-                    opacity: 0;
-                }
-
-                .grid-item:active::before {
-                    transform: translate(-50%, -50%) scale(1);
-                    opacity: 1;
-                } */
-
         .grid-item.selected {
             position: relative;
-            /* border-color: #5a987e; */
-            /* background-color: #315d3c; */
-            /* color: #fff; */
             cursor: not-allowed;
         }
 
@@ -63,6 +41,29 @@
             top: 50%;
             left: 10%;
             transform: translateY(-50%) rotate(45deg);
+        }
+        .last-draw {
+            border-top: 2px solid #ededf5;
+            background: lightcyan;
+        }
+
+        .number-box {
+            width: 5rem;
+            height: 5rem;
+            background-color: var(--main-color);
+            color: lightcyan;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            font-weight: bold;
+            border-radius: 10px;
+            margin: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .number-box:hover {
+            transform: scale(1.1);
         }
 
         .grid-item.selected::after {
@@ -140,7 +141,8 @@
                 <div class="col-lg-5">
                     <div class="section-header text-center">
                         <h2 class="section-title" style="text-transform: none">Starte das Video und wähle Deine Zahl!</h2>
-                        <p>Nach jedem Video kannst Du eine Zahl aus unserem <span class="text-main">Ad<span>Lotto</span></span> 5 aus 55 auswählen. Sobald
+                        <p>Nach jedem Video kannst Du eine Zahl aus unserem <span
+                                class="text-main">Ad<span>Lotto</span></span> 5 aus 55 auswählen. Sobald
                             Du 5 Videos angesehen hast, hast Du alle 5 Zahlen beisammen und Deinen ersten
                             Tippschein erstellt – komplett kostenlos, aber mit voller Chance auf den Jackpot!</p>
                     </div>
@@ -169,13 +171,26 @@
                 <p class="h5">Interessiert an der Werbung?
                     Kein Problem! Du kannst sie einfach anklicken, um mehr Informationen zu erhalten. Sie öffnen
                     sich in einem neuen
-                    Fenster, und Du kannst später bequem zu <span class="text-main h5">Ad<span class="h5">Lotto</span></span> zurückkehren, um an Deinem Tippschein
+                    Fenster, und Du kannst später bequem zu <span class="text-main h5">Ad<span
+                            class="h5">Lotto</span></span> zurückkehren, um an Deinem Tippschein
                     weiterzuarbeiten.</p>
             </div>
         </div>
     </section>
     {{-- this text goes here --}}
 
+    @if ($last_draw)
+        <section class="last-draw jackpot-section py-5">
+            <p class="h3 text-center fw-bold">Letzte Ziehung</p>
+            <div class="row justify-content-center">
+                @foreach ($last_draw->numbers as $item)
+                    <div class="col-auto">
+                        <div class="number-box">{{ $item }}</div>
+                    </div>
+                @endforeach
+            </div>
+        </section>
+    @endif
 
     <!-- lottery-timer-section start -->
     <section class="lottery-timer-section">
