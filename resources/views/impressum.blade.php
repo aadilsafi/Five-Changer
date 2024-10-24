@@ -33,7 +33,6 @@
                             </div>
                             <div class="mt-3">
                                 <ul>
-                                    <li>Geschäftsführer: Achim Pfüller</li>
                                     <li class="fw-bold">Handelsregistereintrag:</li>
                                     <li>Registergericht: Hamburg</li>
                                     <li>Handelsregisternummer: HRB 137363</li>

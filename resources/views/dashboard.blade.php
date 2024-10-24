@@ -179,18 +179,7 @@
     </section>
     {{-- this text goes here --}}
 
-    @if ($last_draw)
-        <section class="last-draw jackpot-section py-5">
-            <p class="h3 text-center fw-bold">Letzte Ziehung</p>
-            <div class="row justify-content-center">
-                @foreach ($last_draw->numbers as $item)
-                    <div class="col-auto">
-                        <div class="number-box">{{ $item }}</div>
-                    </div>
-                @endforeach
-            </div>
-        </section>
-    @endif
+
 
     <!-- lottery-timer-section start -->
     <section class="lottery-timer-section">
@@ -212,6 +201,19 @@
             </div>
         </div>
     </section>
+
+    @if ($last_draw)
+    <section class="last-draw jackpot-section py-5">
+        <p class="h3 text-center fw-bold">Letzte Ziehung</p>
+        <div class="row justify-content-center">
+            @foreach ($last_draw->numbers as $item)
+                <div class="col-auto">
+                    <div class="number-box">{{ $item }}</div>
+                </div>
+            @endforeach
+        </div>
+    </section>
+@endif
 
     <div class="modal" tabindex="-1" id="myModal">
         <div class="modal-dialog modal-dialog-centered modal-lg">
