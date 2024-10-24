@@ -13,12 +13,11 @@ class LotteryTicketController extends Controller
 
     public function index()
     {
+        $latest_draw_id = LotteryNumber::latest()->first()?->id;
         $lottertTickets = LotteryTicket::with('drawNumber:id,draw_number')
             ->select('id', 'lottery_number', 'try_number', 'lottery_number_id')
             ->where('user_id', auth()->user()->id)
-            ->where('lottery_number_id', function ($query) {
-                $query->from('lottery_tickets')->selectRaw('MAX(lottery_number_id)');
-            })
+            ->where('lottery_number_id', $latest_draw_id)
             ->latest('id')
             ->get()
             ->groupBy(['lottery_number_id', 'try_number']);
