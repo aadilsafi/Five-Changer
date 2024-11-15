@@ -24,9 +24,9 @@
                             <div class="mt-3">
                                 <ul>
                                     <li>Nadine Pfüller</li>
-                                    <li>Roth & Storch GmbH</li>
-                                    <li>Überseeallee 1</li>
-                                    <li>20457 Hamburg</li>
+                                    <li>equidine Pferdeosteopathie</li>
+                                    <li>Röthmoorweg 36</li>
+                                    <li>22459 Hamburg</li>
                                     <li><a href="mailto:info@adlotto.de">info@adlotto.de</a></li>
                                     <li><a href="{{ route('home.index') }}">www.adlotto.de</a></li>
                                 </ul>
