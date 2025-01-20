@@ -138,8 +138,8 @@ input, textarea {
 .main-dark-version a {
   color: var(--dark-para-color);
 }
-.main-dark-version p, 
-.main-dark-version span, 
+.main-dark-version p,
+.main-dark-version span,
 .main-dark-versionli li {
   color: var(--dark-para-color);
 }

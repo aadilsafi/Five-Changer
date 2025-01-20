@@ -795,12 +795,22 @@ span.is-active:after {
 .banner-elements-part {
   position: absolute;
   right: 7%;
-  bottom: -25px;
+  top: 200px;
   width: 930px;
   height: 775px;
   background-position: center;
   background-size: cover;
   z-index: -1;
+}
+h1,h2,h3,h4,h5,h6{
+    color: black!important;
+    letter-spacing: 1.2px;
+}
+p{
+    letter-spacing: 1.5px;
+}
+.bullets li{
+    letter-spacing: 1.5px;
 }
 
 .banner-elements-part .element-one,

@@ -80,7 +80,7 @@
     margin-left: 25px;
   }
   .banner-content .title {
-    font-size: 48px;
+    font-size: 32px;
   }
   .banner-content-area {
     padding-top: 130px;
@@ -173,6 +173,9 @@
   }
   .play-card-header .header-btn-area button+button {
     margin-top: 10px;
+  }
+  p {
+    font-size: 16px;
   }
   .single-footer .right {
     -ms-flex: 0 0 55%;

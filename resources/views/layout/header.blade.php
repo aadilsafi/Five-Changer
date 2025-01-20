@@ -4,7 +4,7 @@
             <nav class="navbar navbar-expand-xl">
                 <a class="site-logo site-title" href="{{ route('home.index') }}">
                     <span class="site-title-blue">{!! substr(config('app.name'), 0, 2) !!} </span><span
-                        class="site-title-black">{{ substr(config('app.name'), 2) }}</span>
+                        class="site-title-black">{{ substr(config('app.name'), 2) }}<sup>&reg;</sup></span>
 
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
