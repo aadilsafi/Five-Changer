@@ -122,9 +122,9 @@
                 </p>
                 <br>
                 <h2>
-                    <strong>Zusammenfassung: Deine Vorteile mit <span class="text-main "
-                            style="font-weight: 900;font-size:42px">Ad<span class=" text-dark"
-                                style="font-weight: 900;font-size:42px">Lotto</span></span></strong>
+                    <strong style="line-height: 60px">Zusammenfassung: Deine Vorteile mit <span class="text-main ch2"
+                            style="font-weight: 900;">Ad<span class=" text-dark ch2"
+                                style="font-weight: 900;">Lotto</span></span></strong>
                 </h2>
                 <br>
                 <p class="text-start">
@@ -148,7 +148,7 @@
                             class="">Lotto</span></span>!
                     <br>
                     <br>
-                    <a href="{{route('home.index')}}" class="h5" style="color: #28A745">JETZT MITMACHEN</a>
+                    <a href="{{route('home.index')}}" class="h5" style="color: #F48C06;text-decoration:underline">JETZT MITMACHEN</a>
                 </p>
             </div>
         </div>

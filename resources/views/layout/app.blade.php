@@ -56,7 +56,7 @@
         </div>
     </div> --}}
 
-    <div class="main-light-version">
+    <div class="main-light-version container">
 
         <!--  header-section start  -->
         @include('layout.header')

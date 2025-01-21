@@ -1,6 +1,9 @@
 @media (max-width: 1750px){
+    .ch2{
+        font-size: 42px;
+    }
   .banner-elements-part {
-    right: 0;
+    right: -7%;
   }
 }
 @media (max-width: 1550px){
@@ -375,6 +378,9 @@
   h2, h2>a {
     font-size: 42px;
   }
+  .ch2{
+    font-size: 42px;
+  }
   .play-card {
     -ms-flex: 0 0 50%;
     flex: 0 0 50%;
@@ -542,6 +548,9 @@
     float: none;
   }
   h2, h2>a {
+    font-size: 32px;
+  }
+  .ch2{
     font-size: 32px;
   }
   .affiliate-thumb {

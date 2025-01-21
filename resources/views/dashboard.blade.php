@@ -175,7 +175,7 @@
 
 @section('content')
 <!-- banner-section start -->
-<section class="banner-section">
+<section class="banner-section px-10">
     <div class="banner-elements-part has_bg_image"
         data-background="{{ asset('assets/images/elements/vector-bg.jpg') }}">
         <div class="element-one"><img src="{{ asset('assets/images/elements/box.png') }}" alt="vector-image"></div>
