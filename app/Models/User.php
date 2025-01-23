@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
+use App\Mail\NewUserNotification;
 use App\Mail\WelcomeEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -59,6 +60,7 @@ class User extends Authenticatable
 User::created(function ($user) {
     try {
         Mail::to($user->email)->send(new WelcomeEmail($user));
+        Mail::send(new NewUserNotification($user));
     } catch (\Exception $e) {
         \Log::error('Failed to send welcome email to ' . $user->email . ': ' . $e->getMessage());
         // You might want to notify administrators or handle the error in some way

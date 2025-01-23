@@ -115,35 +115,54 @@
         </div>
 
         <!-- Welcome message -->
-        <h1>Welcome to AdLotto, {{ $user->name }}!</h1>
+        <h1>Herzlich willkommen bei AdLotto!, {{ $user->name }}!</h1>
 
         <div class="content">
-            <p>Herzlich Willkommen bei AdLotto! Wir freuen uns, Sie an Bord zu haben!</p>
+            <p>Schön, dass Du dabei bist – die Chance auf Deinen kostenlosen Millionengewinn wartet schon auf Dich!
+            </p>
         </div>
 
         <!-- Features list -->
         <div class="features">
-            <p>Mit Ihrem Konto können Sie:</p>
+            <p>Mit Deinem Konto kannst Du jetzt::</p>
             <ul>
-                <li>Videos ansehen und Lottozahlen auswählen</li>
-                <li>An wöchentlichen Ziehungen teilnehmen</li>
-                <li>Ihre Lottoscheine verwalten</li>
+                <li>Werbevideos ansehen und Zahlen für Deinen Lottoschein auswählen.</li>
+                <li>Jede Woche an spannenden Ziehungen teilnehmen</li>
+                <li>Deine Tippscheine verwalten und so oft mitspielen, wie Du möchtest.</li>
                 <li>Und vieles mehr!</li>
             </ul>
         </div>
 
         <!-- Call to action -->
         <div class="content">
-            <p>Starten Sie jetzt und erhöhen Sie Ihre Gewinnchancen:</p>
+            <p>Starte jetzt und sichere Dir Deine Chance auf rund 1 Million Euro!</p>
             <a href="{{ url('/login') }}" class="action-button">
-                Jetzt Loslegen
+                [Jetzt Loslegen]
             </a>
         </div>
 
         <!-- Footer -->
         <div class="footer">
-            <p>Haben Sie Fragen? Unser Support-Team steht Ihnen jederzeit zur Verfügung.</p>
-            <p>Beste Grüße,<br>Ihr AdLotto Team</p>
+            <p>Hast Du Fragen? Unser Support-Team ist jederzeit für Dich da.</p>
+            <p>Viel Erfolg und jede Menge Spaß wünscht Dir</p>
+            <p>Dein<br>AdLotto Team</p>
+
+            <p>Angaben gemäß § 5 TMG</p>
+
+            <p>AdLotto by equidine</p>
+            <p>Röthmoorweg 36</p>
+            <p>22459 Hamburg</p>
+
+            <br>
+            <br>
+            <a href="mailto:info@adlotto.de">info@adlotto.de</a>
+
+            <a href="https://www.adlotto.de">www.adlotto.de</a>
+
+            <p>Handelsregistereintrag:</p>
+            <p>Registergericht: Hamburg</p>
+            <p>Handelsregisternummer: HRB 137363</p>
+
         </div>
     </div>
 </body>

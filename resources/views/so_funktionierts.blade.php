@@ -15,7 +15,7 @@
             </div>
         </div>
         <div class="row align-items-center justify-content-center">
-            <div class="col-xl-5 col-lg-6">
+            <div class="col-xl-5 col-lg-6 pb-5">
                 <div class="work-steps-items-part d-flex items-center">
                     <div class="line"><img src="{{ asset('assets/images/elements/line.png') }}" alt="line-image">
                     </div>
@@ -54,8 +54,8 @@
 
             <div class="col-12 mt-2">
                 <h2 class="h1 text-dark">
-                    <strong> So funktioniert <span class="text-main h1">Ad<span
-                                class="h1 text-dark">Lotto</span></span></strong>
+                    <strong> So funktioniert <span class="text-main h1" style="font-weight: bolder">Ad<span
+                                class="h1 text-dark" style="font-weight: bolder">Lotto</span></span></strong>
                 </h2>
                 <br>
                 <br>
