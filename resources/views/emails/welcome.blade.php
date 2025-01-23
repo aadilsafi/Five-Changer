@@ -115,7 +115,7 @@
         </div>
 
         <!-- Welcome message -->
-        <h1>Herzlich willkommen bei AdLotto!, {{ $user->name }}!</h1>
+        <h1>Herzlich willkommen bei AdLotto, {{ $user->name }}</h1>
 
         <div class="content">
             <p>Schön, dass Du dabei bist – die Chance auf Deinen kostenlosen Millionengewinn wartet schon auf Dich!
@@ -124,7 +124,7 @@
 
         <!-- Features list -->
         <div class="features">
-            <p>Mit Deinem Konto kannst Du jetzt::</p>
+            <p>Mit Deinem Konto kannst Du jetzt:</p>
             <ul>
                 <li>Werbevideos ansehen und Zahlen für Deinen Lottoschein auswählen.</li>
                 <li>Jede Woche an spannenden Ziehungen teilnehmen</li>
