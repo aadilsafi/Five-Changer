@@ -61,7 +61,60 @@
         <!--  header-section start  -->
         @include('layout.header')
         <!--  header-section end  -->
+      {{-- resources/views/components/user-notification.blade.php --}}
+        {{-- resources/views/components/user-notification.blade.php --}}
 
+        @if (session()->has('referral_message'))
+        <div id="user-referral-notification" class="position-fixed w-100 top-0 start-0" style="z-index: 1050; display: none;">
+            <div class="alert alert-success mb-0 border-0 rounded-0 py-3 shadow">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-auto">
+                            <div class="bg-success bg-opacity-25 rounded-circle p-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                <i class="bi bi-check-circle-fill text-success fs-4"></i>
+                            </div>
+                        </div>
+                        <div class="col">
+                             {{ session('referral_message') }}
+                            {{-- <span class="d-none d-md-inline">Viel Glück bei der nächsten Ziehung!</span> --}}
+                        </div>
+                        <div class="col-auto">
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" onclick="dismissNotification()"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+        function dismissNotification() {
+            const notification = document.getElementById('user-referral-notification');
+            notification.style.transform = 'translateY(-100%)';
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 500);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const notification = document.getElementById('user-referral-notification');
+
+            // Make the notification visible but above the viewport
+            notification.style.display = 'block';
+            notification.style.transform = 'translateY(-100%)';
+            notification.style.transition = 'transform 0.5s ease';
+
+            // Slide it down after a small delay
+            setTimeout(() => {
+                notification.style.transform = 'translateY(0)';
+            }, 300);
+
+            // Auto-hide after 10 seconds
+            setTimeout(() => {
+                dismissNotification();
+            }, 10000);
+        });
+        </script>
+        @endif
         @yield('content')
 
         <!-- footer-section start -->

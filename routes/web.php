@@ -26,4 +26,34 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/debug-provider', function() {
+    // Check if the provider class exists
+    $providerClass = 'App\\Providers\\Filament\\PartnerPanelProvider';
+    $exists = class_exists($providerClass);
+
+    // Try to instantiate it
+    $instance = null;
+    $error = null;
+
+    try {
+        if ($exists) {
+            $instance = new $providerClass();
+        }
+    } catch (\Throwable $e) {
+        $error = $e->getMessage();
+    }
+
+    // Check if bootstrap/providers.php includes it
+    $providersFile = file_get_contents(base_path('bootstrap/providers.php'));
+    $isRegistered = str_contains($providersFile, 'PartnerPanelProvider');
+
+    return [
+        'provider_class_exists' => $exists,
+        'provider_instantiated' => $instance !== null,
+        'error' => $error,
+        'registered_in_bootstrap' => $isRegistered,
+        'app_providers' => app()->getLoadedProviders(),
+    ];
+});
+
 require __DIR__ . '/auth.php';

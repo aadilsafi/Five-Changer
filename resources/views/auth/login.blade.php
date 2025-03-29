@@ -1,5 +1,38 @@
 <x-guest-layout>
-    <!-- Session Status -->
+    <div id="intro-splash-screen" class="fixed inset-0 flex items-center justify-center z-50 hidden">
+        <div class="fixed inset-0 bg-black bg-opacity-50" id="modal-backdrop"></div>
+        <div class="bg-white rounded-lg shadow-xl max-w-md w-full mx-4 relative z-10">
+            <div class="bg-indigo-600 text-white px-6 py-4 rounded-t-lg">
+                <h3 class="text-lg font-semibold">AdLotto - Demo Modus</h3>
+            </div>
+            <div class="p-6">
+                <div class="text-center mb-4">
+                    <h4 class="text-xl font-bold">Willkommen bei AdLotto!</h4>
+                </div>
+
+                <div class="bg-blue-100 text-blue-800 p-4 rounded mb-4">
+                    <p>AdLotto befindet sich derzeit im Demo-Modus. Eine Registrierung ist erforderlich, um fortzufahren.</p>
+                </div>
+
+                <p class="font-medium">Mit AdLotto können Sie:</p>
+                <ul class="list-disc pl-5 mb-4 space-y-1">
+                    <li>Videos ansehen und Lotterie-Nummern sammeln</li>
+                    <li>An wöchentlichen Ziehungen teilnehmen</li>
+                    <li>Tolle Preise gewinnen</li>
+                </ul>
+
+                <p>Registrieren Sie sich jetzt, um zu beginnen!</p>
+            </div>
+            <div class="bg-gray-100 px-6 py-4 rounded-b-lg flex justify-end space-x-2">
+                <a href="{{ route('register') }}" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded">
+                    Registrieren
+                </a>
+                <button type="button" id="close-modal" class="bg-gray-500 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded">
+                    Anmelden
+                </button>
+            </div>
+        </div>
+    </div>    <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
     <form method="POST" action="{{ route('login') }}">
@@ -45,4 +78,31 @@
             </x-primary-button>
         </div>
     </form>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get the modal elements
+            const modal = document.getElementById('intro-splash-screen');
+            const closeBtn = document.getElementById('close-modal');
+            const backdrop = document.getElementById('modal-backdrop');
+
+            // Function to show the modal
+            function showModal() {
+                modal.classList.remove('hidden');
+            }
+
+            // Function to hide the modal
+            function hideModal() {
+                modal.classList.add('hidden');
+            }
+
+            // Show modal after a small delay
+            setTimeout(showModal, 500);
+
+            // Close the modal when close button is clicked
+            closeBtn.addEventListener('click', hideModal);
+
+            // Close the modal when backdrop is clicked
+            backdrop.addEventListener('click', hideModal);
+        });
+    </script>
 </x-guest-layout>

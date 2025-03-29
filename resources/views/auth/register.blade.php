@@ -9,6 +9,30 @@
                 autofocus autocomplete="name" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div> --}}
+            <!-- User Type Selection -->
+            <div class="mt-4">
+                <x-input-label :value="__('User Type')" />
+                <div class="flex items-center mt-2 space-x-4">
+                    <div class="flex items-center">
+                        <input id="user_type_user" type="radio" name="user_type" value="user"
+                            class="w-4 h-4 text-indigo-600 border-gray-300 focus:ring-indigo-500"
+                            {{ old('user_type') == 'user' ? 'checked' : '' }} checked>
+                        <label for="user_type_user" class="ml-2 text-sm font-medium text-gray-700">
+                            {{ __('User') }}
+                        </label>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="hidden" name="referral_code" value="{{ request('referral_code') }}">
+                        <input id="user_type_partner" type="radio" name="user_type" value="partner"
+                            class="w-4 h-4 text-indigo-600 border-gray-300 focus:ring-indigo-500"
+                            {{ old('user_type') == 'partner' ? 'checked' : '' }}>
+                        <label for="user_type_partner" class="ml-2 text-sm font-medium text-gray-700">
+                            {{ __('Partner') }}
+                        </label>
+                    </div>
+                </div>
+                <x-input-error :messages="$errors->get('user_type')" class="mt-2" />
+            </div>
 
         <!-- Email Address -->
         <div class="mt-4">

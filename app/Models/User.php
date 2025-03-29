@@ -25,7 +25,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'video_id'
+        'video_id',
+        'referral_code',
+        'referred_by',
     ];
 
     /**
@@ -54,6 +56,36 @@ class User extends Authenticatable
     public function lotteryTickets()
     {
         return $this->hasMany(LotteryTicket::class);
+    }
+    /**
+     * Scope a query to only include users who have purchased lottery tickets.
+     */
+    public function scopeHasTickets($query)
+    {
+        return $query->whereHas('lotteryTickets');
+    }
+
+    /**
+     * Get active users only.
+     */
+    public function scopeActive($query)
+    {
+        return $query->where('active', true);
+    }
+    /**
+     * Get the referred users for the partner.
+     */
+    public function referredUsers()
+    {
+        return $this->hasMany(User::class, 'referred_by');
+    }
+
+    /**
+     * Get the partner who referred this user.
+     */
+    public function referrer()
+    {
+        return $this->belongsTo(User::class, 'referred_by');
     }
 }
 
