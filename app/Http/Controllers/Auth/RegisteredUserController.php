@@ -63,7 +63,7 @@ class RegisteredUserController extends Controller
                     $user->referred_by = $referralUser->id;
                     $user->save();
                     $this->generateRandomLotteryNumbers($user);
-                    Session::put('referral_message','Du hast einen Empfehlungscode verwendet – die ersten 2 Felder Deines ersten Lottoscheins sind bereits ausgefüllt!');
+                    Session::flash('referral_message','Du hast einen Empfehlungscode verwendet – die ersten 2 Felder Deines ersten Lottoscheins sind bereits ausgefüllt!');
 
                 }
             }
