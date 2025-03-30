@@ -53,7 +53,8 @@
 
                                 <div class="dropdown">
                                     <div class="fw-bold dropdown-toggle" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                                        {{ Auth::user()->name }}
+                                        {{ Str::limit(Auth::user()->name, 20, '...') }}
+
                                     </div>
                                     <ul class="dropdown-menu" aria-labelledby="userDropdown">
                                         {{-- <li><a class="dropdown-item" href="{{ route('customer.dashboard') }}">Dashboard</a></li> --}}
@@ -62,7 +63,8 @@
                                 </div>
                                 @else
                                     <div class="fw-bold">
-                                        {{ Auth::user()->name }}
+                                        {{ Str::limit(Auth::user()->name, 20, '...') }}
+
                                     </div>
                                 @endif
                             </div>
