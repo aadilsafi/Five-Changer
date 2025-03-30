@@ -48,7 +48,7 @@
                     </ul>
                     <div class="header-join-part d-flex justify-content-center align-items-center">
                         @auth
-                            <div class="px-4 d-flex gap-3 ">
+                            <div class="px-2 d-flex">
                                 @if(auth()->user() && auth()->user()->hasRole(['Admin', 'Partner']))
 
                                 <div class="dropdown">
