@@ -49,17 +49,22 @@
                     <div class="header-join-part d-flex justify-content-center align-items-center">
                         @auth
                             <div class="px-4 d-flex gap-3 ">
+                                @if(auth()->user() && auth()->user()->hasRole(['Admin', 'Partner']))
+
                                 <div class="dropdown">
                                     <div class="fw-bold dropdown-toggle" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                                         {{ Auth::user()->name }}
                                     </div>
                                     <ul class="dropdown-menu" aria-labelledby="userDropdown">
                                         {{-- <li><a class="dropdown-item" href="{{ route('customer.dashboard') }}">Dashboard</a></li> --}}
-                                        @if(auth()->user() && auth()->user()->hasRole(['Admin', 'Partner']))
                                         <li><a class="dropdown-item" href="{{ auth()->user()->hasRole('Admin') ?  url('admin') : url('partner-area') }}">Dashboard</a>
-                                        @endif
                                     </ul>
                                 </div>
+                                @else
+                                    <div class="fw-bold">
+                                        {{ Auth::user()->name }}
+                                    </div>
+                                @endif
                             </div>
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf

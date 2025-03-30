@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+use Str;
 
 class RegisteredUserController extends Controller
 {
@@ -45,10 +46,14 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        if ($request->has('user_type') && $request->user_type == 'Partner') {
+        if ($request->has('user_type') && $request->user_type == 'partner') {
             $user->assignRole($request->user_type);
             // Generate unique referal code for the user
-            $user->referral_code = uniqid('ref_');
+            do {
+                $referralCode = Str::random(8);
+            } while (User::where('referral_code', $referralCode)->exists());
+
+            $user->referral_code = $referralCode;
             $user->save();
         } else {
             $user->assignRole('User');

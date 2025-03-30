@@ -22,7 +22,7 @@
                         </label>
                     </div>
                     <div class="flex items-center">
-                        <input type="hidden" name="referral_code" value="{{ request('referral_code') }}">
+                        {{-- <input type="hidden" name="referral_code" value="{{ request('referral_code') }}"> --}}
                         <input id="user_type_partner" type="radio" name="user_type" value="partner"
                             class="w-4 h-4 text-indigo-600 border-gray-300 focus:ring-indigo-500"
                             {{ old('user_type') == 'partner' ? 'checked' : '' }}>
@@ -60,6 +60,16 @@
                 name="password_confirmation" required autocomplete="new-password" />
 
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+        </div>
+
+        <!-- Referral Code -->
+        <div class="mt-4">
+            <x-input-label for="referral_code" :value="__('Referral Code')" />
+
+            <x-text-input id="referral_code" class="block mt-1 w-full" type="text"
+                name="referral_code" required autocomplete="new-password" />
+
+            <x-input-error :messages="$errors->get('referral_code')" class="mt-2" />
         </div>
 
         <div class="flex items-center justify-end mt-4">
