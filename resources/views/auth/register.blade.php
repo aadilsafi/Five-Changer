@@ -67,7 +67,7 @@
             <x-input-label for="referral_code" :value="__('Referral Code')" />
 
             <x-text-input id="referral_code" class="block mt-1 w-full" type="text"
-                name="referral_code" required autocomplete="new-password" />
+                name="referral_code" autocomplete="new-password" />
 
             <x-input-error :messages="$errors->get('referral_code')" class="mt-2" />
         </div>
