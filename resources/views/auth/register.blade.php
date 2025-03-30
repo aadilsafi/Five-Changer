@@ -63,7 +63,8 @@
         </div>
 
         <!-- Referral Code -->
-        <div class="mt-4">
+        <div id="referral_code_container" class="mt-4" style="display: none;">
+
             <x-input-label for="referral_code" :value="__('Referral Code')" />
 
             <x-text-input id="referral_code" class="block mt-1 w-full" type="text"
@@ -83,4 +84,25 @@
             </x-primary-button>
         </div>
     </form>
+    <script>
+        // Show or hide referral code field based on user type selection
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get radio buttons and referral code container
+            const userRadio = document.getElementById('user_type_user');
+            const partnerRadio = document.getElementById('user_type_partner');
+            const referralCodeContainer = document.getElementById('referral_code_container');
+
+            // Function to toggle referral code visibility
+            function toggleReferralCodeVisibility() {
+                referralCodeContainer.style.display = partnerRadio.checked ? 'block' : 'none';
+            }
+
+            // Initial check
+            toggleReferralCodeVisibility();
+
+            // Add event listeners to radio buttons
+            userRadio.addEventListener('change', toggleReferralCodeVisibility);
+            partnerRadio.addEventListener('change', toggleReferralCodeVisibility);
+        });
+    </script>
 </x-guest-layout>
