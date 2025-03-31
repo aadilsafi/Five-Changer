@@ -39,7 +39,7 @@ class ReferredUserResource extends Resource
                 Forms\Components\TextInput::make('lottery_tickets_count')
                 ->label('Lottery Tickets')
                 ->formatStateUsing(function (User $record): int {
-                    return $record->lotteryTickets()->count();
+                    return $record->lotteryTickets()->distinct('lottery_number_id')->count();
                 })
                 ->disabled()
                 ->dehydrated(false),
@@ -63,7 +63,9 @@ class ReferredUserResource extends Resource
                 // Add lottery tickets count column
                 Tables\Columns\TextColumn::make('lottery_tickets_count')
                     ->label('Lottery Tickets')
-                    ->counts('lotteryTickets')
+                    ->state(function ($record) {
+                        return $record->lotteryTickets()->distinct('lottery_number_id')->count();
+                    })
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
