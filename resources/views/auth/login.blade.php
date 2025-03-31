@@ -3,22 +3,23 @@
         <div class="fixed inset-0 bg-black bg-opacity-50" id="modal-backdrop"></div>
         <div class="bg-white rounded-lg shadow-xl max-w-md w-full mx-4 relative z-10">
             <div class="bg-indigo-600 text-white px-6 py-4 rounded-t-lg">
-                <h3 class="text-lg font-semibold">AdLotto - Demo Modus</h3>
+                <h3 class="text-lg font-semibold">AdLotto ist aktuell im Demo-Modus</h3>
             </div>
             <div class="p-6">
-                <div class="text-center mb-4">
+                {{-- <div class="text-center mb-4">
                     <h4 class="text-xl font-bold">Willkommen bei AdLotto!</h4>
-                </div>
+                </div> --}}
 
                 <div class="bg-blue-100 text-blue-800 p-4 rounded mb-4">
-                    <p>AdLotto befindet sich derzeit im Demo-Modus. Eine Registrierung ist erforderlich, um fortzufahren.</p>
+                    <p>Noch sind wir nicht live – aber Du kannst das System bereits ausprobieren.</p>
                 </div>
 
-                <p class="font-medium">Mit AdLotto können Sie:</p>
+                <p class="font-medium">Bitte erstelle ein kostenloses Nutzerkonto, um Zugang zur Plattform zu erhalten.</p>
                 <ul class="list-disc pl-5 mb-4 space-y-1">
-                    <li>Videos ansehen und Lotterie-Nummern sammeln</li>
-                    <li>An wöchentlichen Ziehungen teilnehmen</li>
-                    <li>Tolle Preise gewinnen</li>
+
+                    <li>Warum ist das notwendig?</li>
+                    <li>Weil Deine erspielten Lottozahlen gespeichert und Deinem Konto zugeordnet werden müssen –</li>
+                    <li>nur so kannst Du an der Ziehung teilnehmen, sobald es losgeht.</li>
                 </ul>
 
                 <p>Registrieren Sie sich jetzt, um zu beginnen!</p>

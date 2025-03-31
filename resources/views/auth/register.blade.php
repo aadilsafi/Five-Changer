@@ -11,14 +11,14 @@
         </div> --}}
             <!-- User Type Selection -->
             <div class="mt-4">
-                <x-input-label :value="__('User Type')" />
+                {{-- <x-input-label :value="__('User Type')" /> --}}
                 <div class="flex items-center mt-2 space-x-4">
                     <div class="flex items-center">
                         <input id="user_type_user" type="radio" name="user_type" value="user"
                             class="w-4 h-4 text-indigo-600 border-gray-300 focus:ring-indigo-500"
                             {{ old('user_type') == 'user' ? 'checked' : '' }} checked>
                         <label for="user_type_user" class="ml-2 text-sm font-medium text-gray-700">
-                            {{ __('User') }}
+                            {{ __('Ich möchte als Spieler teilnehmen') }}
                         </label>
                     </div>
                     <div class="flex items-center">
@@ -27,7 +27,7 @@
                             class="w-4 h-4 text-indigo-600 border-gray-300 focus:ring-indigo-500"
                             {{ old('user_type') == 'partner' ? 'checked' : '' }}>
                         <label for="user_type_partner" class="ml-2 text-sm font-medium text-gray-700">
-                            {{ __('Partner') }}
+                            {{ __('Ich bin Creator, Affiliate oder Werbepartner') }}
                         </label>
                     </div>
                 </div>
