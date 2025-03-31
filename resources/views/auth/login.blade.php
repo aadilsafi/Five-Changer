@@ -15,14 +15,12 @@
                 </div>
 
                 <p class="font-medium">Bitte erstelle ein kostenloses Nutzerkonto, um Zugang zur Plattform zu erhalten.</p>
-                <ul class="list-disc pl-5 mb-4 space-y-1">
+                <p class="py-2">
+                    Warum ist das notwendig?
+                </p>
+                    <p>Weil Deine erspielten Lottozahlen gespeichert und Deinem Konto zugeordnet werden müssen –</p>
+                    <p>nur so kannst Du an der Ziehung teilnehmen, sobald es losgeht.</p>
 
-                    <li>Warum ist das notwendig?</li>
-                    <li>Weil Deine erspielten Lottozahlen gespeichert und Deinem Konto zugeordnet werden müssen –</li>
-                    <li>nur so kannst Du an der Ziehung teilnehmen, sobald es losgeht.</li>
-                </ul>
-
-                <p>Registrieren Sie sich jetzt, um zu beginnen!</p>
             </div>
             <div class="bg-gray-100 px-6 py-4 rounded-b-lg flex justify-end space-x-2">
                 <a href="{{ route('register') }}" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded">
