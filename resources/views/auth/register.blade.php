@@ -63,7 +63,7 @@
         </div>
 
         <!-- Referral Code -->
-        <div id="referral_code_container" class="mt-4" style="display: none;">
+        <div id="referral_code_container" class="mt-4">
 
             <x-input-label for="referral_code" :value="__('Referral Code')" />
 
@@ -94,7 +94,7 @@
 
             // Function to toggle referral code visibility
             function toggleReferralCodeVisibility() {
-                referralCodeContainer.style.display = partnerRadio.checked ? 'block' : 'none';
+                referralCodeContainer.style.display = partnerRadio.checked ? 'none' : 'block';
             }
 
             // Initial check
