@@ -167,13 +167,13 @@
     }
 
     // Set the time to 2:00 PM
-    $nextMonday->setTime(14, 0);
+    $nextMonday->setTime(12, 0);
 
     // Pass the $nextMonday to the view
     ?>
     <script>
-      // Set the timezone (e.g., 'Asia/Karachi' for Pakistan Standard Time)
-      const timezone = "Asia/Karachi";
+      // Set the timezone (e.g., 'Europe/Berlin' for Pakistan Standard Time)
+      const timezone = "Europe/Berlin";
 
         // Get the next Monday at 2:00 PM from Laravel
         const nextMonday = moment.tz("{{ $nextMonday->format('Y-m-d H:i:s') }}", timezone);
