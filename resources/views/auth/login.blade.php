@@ -1,25 +1,33 @@
 <x-guest-layout>
-    <div id="intro-splash-screen" class="fixed inset-0 flex items-center justify-center z-50 hidden">
-        <div class="fixed inset-0 bg-black bg-opacity-50" id="modal-backdrop"></div>
-        <div class="bg-white rounded-lg shadow-xl max-w-md w-full mx-4 relative z-10">
+    <style>
+        ul {
+    list-style-type: disc !important;
+    padding-left: 1em;
+}
+
+    </style>
+<div id="intro-splash-screen" class="fixed inset-0 flex items-center justify-center z-50 py-4 overflow-y-auto">
+    <div class="fixed inset-0 bg-black bg-opacity-50" id="modal-backdrop"></div>
+    <div class="bg-white rounded-lg shadow-xl w-full h-screen max-w-md mx-4 relative z-10 max-h-[90vh] overflow-y-auto flex flex-col">
             <div class="bg-indigo-600 text-white px-6 py-4 rounded-t-lg">
-                <h3 class="text-lg font-semibold">AdLotto ist aktuell im Demo-Modus</h3>
+                <h3 class="text-lg font-semibold">Willkommen bei AdLotto – aktuell im Demo-Modus</h3>
             </div>
             <div class="p-6">
-                {{-- <div class="text-center mb-4">
-                    <h4 class="text-xl font-bold">Willkommen bei AdLotto!</h4>
-                </div> --}}
-
                 <div class="bg-blue-100 text-blue-800 p-4 rounded mb-4">
-                    <p>Noch sind wir nicht live – aber Du kannst das System bereits ausprobieren.</p>
+                    <p>AdLotto ist noch nicht offiziell gestartet – aber Du kannst das System schon jetzt ganz unverbindlich ausprobieren.
+                        Um Zugriff zu erhalten, erstelle bitte ein kostenloses Nutzerkonto.</p>
                 </div>
-
-                <p class="font-medium">Bitte erstelle ein kostenloses Nutzerkonto, um Zugang zur Plattform zu erhalten.</p>
                 <p class="py-2">
-                    Warum ist das notwendig?
+                    Warum ist das nötig?
                 </p>
-                    <p>Weil Deine erspielten Lottozahlen gespeichert und Deinem Konto zugeordnet werden müssen –</p>
-                    <p>nur so kannst Du an der Ziehung teilnehmen, sobald es losgeht.</p>
+                    <p>Damit wir Deine erspielten Lottozahlen speichern und eindeutig Deinem Konto zuordnen können.</p>
+                    <p>Nur so ist später – wenn AdLotto live geht – sichergestellt, dass mögliche Gewinne auch korrekt Dir gutgeschrieben werden.</p>
+                    <p class="pt-4">Du hast zwei Möglichkeiten zur Registrierung:</p>
+                    <ul>
+                        <li class="pt-4"><b>Als Spieler</b>, um kostenlos an der Lotterie teilzunehmen</li>
+                        <li class="pt-4"><b>Als Creator</b>, wenn Du AdLotto als Influencer weiterempfehlen möchtest</li>
+                    </ul>
+                    <p class="pt-4">Wähle einfach die Option, die zu Dir passt – und schon kannst Du loslegen!</p>
 
             </div>
             <div class="bg-gray-100 px-6 py-4 rounded-b-lg flex justify-end space-x-2">
