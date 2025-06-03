@@ -23,8 +23,8 @@
                             <p class="h4">Angaben gemäß § 5 TMG</p>
                             <div class="mt-3">
                                 <ul>
-                                    <li>Nadine Pfüller</li>
-                                    <li>equidine Pferdeosteopathie</li>
+                                    <li>Achim Pfüller</li>
+                                    <li>Roth & Storch GmbH</li>
                                     <li>Röthmoorweg 36</li>
                                     <li>22459 Hamburg</li>
                                     <li><a href="mailto:info@adlotto.de">info@adlotto.de</a></li>
