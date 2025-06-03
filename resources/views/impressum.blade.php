@@ -23,10 +23,11 @@
                             <p class="h4">Angaben gemäß § 5 TMG</p>
                             <div class="mt-3">
                                 <ul>
-                                    <li>Achim Pfüller</li>
                                     <li>Roth & Storch GmbH</li>
-                                    <li>Röthmoorweg 36</li>
-                                    <li>22459 Hamburg</li>
+                                    <li>Achim Pfüller</li>
+                                    <li>Überseeallee 1</li>
+                                    <li>20457 Hamburg</li>
+                                    <li>Deutschland</li>
                                     <li><a href="mailto:info@adlotto.de">info@adlotto.de</a></li>
                                     <li><a href="{{ route('home.index') }}">www.adlotto.de</a></li>
                                 </ul>
